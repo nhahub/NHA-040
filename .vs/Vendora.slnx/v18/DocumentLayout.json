@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "A:\\college\\internship\\DPI\\Vendora\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Vendora\\Controllers\\HomeController.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Vendora\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T15:46:43.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Vendora\\Views\\Home\\Index.cshtml",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Vendora\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T15:46:37.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Program.cs",
+              "RelativeDocumentMoniker": "Vendora\\Program.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Program.cs",
+              "RelativeToolTip": "Vendora\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T15:46:19.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Vendora\\Data\\AppDbContext.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Vendora\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T15:46:16.792Z",
+              "EditorCaption": ""
             }
           ]
         }
