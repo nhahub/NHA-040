@@ -8,32 +8,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("product_id", "display_order", Name = "IX_ProductImages_Product_DisplayOrder")]
 public partial class ProductImage
 {
     [Key]
-    public int image_id { get; set; }
+    public int ImageID { get; set; }
 
-    public int product_id { get; set; }
-
-    public int? variant_id { get; set; }
+    public int ProductID { get; set; }
 
     [Required]
-    [StringLength(2000)]
-    public string image_url { get; set; }
+    [StringLength(500)]
+    public string ImageURL { get; set; }
 
-    [StringLength(512)]
-    public string alt_text { get; set; }
+    [StringLength(255)]
+    public string AltText { get; set; }
 
-    public int display_order { get; set; }
+    public bool? IsPrimary { get; set; }
 
-    public bool is_primary { get; set; }
-
-    [ForeignKey("product_id")]
+    [ForeignKey("ProductID")]
     [InverseProperty("ProductImages")]
-    public virtual Product product { get; set; }
-
-    [ForeignKey("variant_id")]
-    [InverseProperty("ProductImages")]
-    public virtual ProductVariant variant { get; set; }
+    public virtual Product Product { get; set; }
 }

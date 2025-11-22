@@ -11,52 +11,32 @@ namespace Vendora.Models;
 public partial class Vendor
 {
     [Key]
-    public int vendor_id { get; set; }
-
-    public int? owner_user_id { get; set; }
+    public int VendorID { get; set; }
 
     [Required]
     [StringLength(255)]
-    public string business_name { get; set; }
-
-    [StringLength(128)]
-    public string tax_id { get; set; }
-
-    [StringLength(50)]
-    public string phone { get; set; }
+    public string Name { get; set; }
 
     [Required]
-    [StringLength(32)]
-    public string status { get; set; }
+    [StringLength(20)]
+    public string Phone { get; set; }
 
-    public int? approved_by { get; set; }
+    [StringLength(20)]
+    public string Status { get; set; }
 
-    public DateTime? approved_at { get; set; }
+    public DateTime? ApprovedAt { get; set; }
 
-    public DateTime created_at { get; set; }
+    [Column(TypeName = "decimal(18, 2)")]
+    public decimal? Balance { get; set; }
 
-    [InverseProperty("vendor")]
-    public virtual ICollection<CommissionRule> CommissionRules { get; set; } = new List<CommissionRule>();
+    [Required]
+    [StringLength(60)]
+    public string BankAccount { get; set; }
 
-    [InverseProperty("vendor")]
-    public virtual ICollection<File> Files { get; set; } = new List<File>();
+    [Required]
+    [StringLength(255)]
+    public string Address { get; set; }
 
-    [InverseProperty("vendor")]
-    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-
-    [InverseProperty("vendor")]
-    public virtual ICollection<PayoutRequest> PayoutRequests { get; set; } = new List<PayoutRequest>();
-
-    [InverseProperty("vendor")]
-    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
-
-    [InverseProperty("vendor")]
-    public virtual ICollection<VendorTransaction> VendorTransactions { get; set; } = new List<VendorTransaction>();
-
-    [InverseProperty("vendor")]
-    public virtual ICollection<VendorUser> VendorUsers { get; set; } = new List<VendorUser>();
-
-    [ForeignKey("owner_user_id")]
-    [InverseProperty("Vendors")]
-    public virtual User owner_user { get; set; }
+    [InverseProperty("Vendor")]
+    public virtual ICollection<SupplyOrder> SupplyOrders { get; set; } = new List<SupplyOrder>();
 }

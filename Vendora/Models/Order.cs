@@ -8,54 +8,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("user_id", "created_at", Name = "IX_Orders_User_CreatedAt")]
 public partial class Order
 {
     [Key]
-    public int order_id { get; set; }
+    public int OrderID { get; set; }
 
-    public int user_id { get; set; }
+    public DateTime? OrderDate { get; set; }
 
-    [Required]
-    [StringLength(32)]
-    public string status { get; set; }
+    public int ClientID { get; set; }
 
     [Column(TypeName = "decimal(12, 2)")]
-    public decimal total_amount { get; set; }
+    public decimal TotalOrder { get; set; }
 
-    [Required]
-    [StringLength(8)]
-    public string currency { get; set; }
+    [StringLength(60)]
+    public string Status { get; set; }
 
-    public int? shipping_address_id { get; set; }
+    public int address_id { get; set; }
 
-    public int? billing_address_id { get; set; }
-
-    public DateTime created_at { get; set; }
-
-    public DateTime? updated_at { get; set; }
-
-    [InverseProperty("order")]
-    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-
-    [InverseProperty("order")]
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
-
-    [InverseProperty("order")]
-    public virtual ICollection<Refund> Refunds { get; set; } = new List<Refund>();
-
-    [InverseProperty("order")]
-    public virtual ICollection<VendorTransaction> VendorTransactions { get; set; } = new List<VendorTransaction>();
-
-    [ForeignKey("billing_address_id")]
-    [InverseProperty("Orderbilling_addresses")]
-    public virtual Address billing_address { get; set; }
-
-    [ForeignKey("shipping_address_id")]
-    [InverseProperty("Ordershipping_addresses")]
-    public virtual Address shipping_address { get; set; }
-
-    [ForeignKey("user_id")]
+    [ForeignKey("ClientID")]
     [InverseProperty("Orders")]
-    public virtual User user { get; set; }
+    public virtual Client Client { get; set; }
+
+    [InverseProperty("Order")]
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 }

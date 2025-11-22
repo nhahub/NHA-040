@@ -14,7 +14,7 @@ namespace Vendora.Controllers
 
         public IActionResult Index()
         {
-            return View();//_db.Users.ToList()
+            return View(_db.Employees.ToList());
         }
 
         public IActionResult Privacy()
@@ -22,10 +22,5 @@ namespace Vendora.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

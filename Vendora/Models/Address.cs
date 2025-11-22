@@ -8,47 +8,33 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("user_id", Name = "IX_Addresses_User")]
 public partial class Address
 {
     [Key]
     public int address_id { get; set; }
 
-    public int? user_id { get; set; }
-
-    [StringLength(200)]
-    public string full_name { get; set; }
+    public int ClientID { get; set; }
 
     [Required]
     [StringLength(500)]
-    public string line1 { get; set; }
+    public string full_description { get; set; }
 
-    [StringLength(500)]
-    public string line2 { get; set; }
-
+    [Required]
     [StringLength(200)]
     public string city { get; set; }
 
     [StringLength(50)]
     public string postal_code { get; set; }
 
+    [Required]
     [StringLength(100)]
     public string country { get; set; }
 
-    [StringLength(50)]
-    public string phone { get; set; }
+    public bool? is_default { get; set; }
 
-    public bool is_default { get; set; }
+    public DateTime? created_at { get; set; }
 
-    public DateTime created_at { get; set; }
-
-    [InverseProperty("billing_address")]
-    public virtual ICollection<Order> Orderbilling_addresses { get; set; } = new List<Order>();
-
-    [InverseProperty("shipping_address")]
-    public virtual ICollection<Order> Ordershipping_addresses { get; set; } = new List<Order>();
-
-    [ForeignKey("user_id")]
+    [ForeignKey("ClientID")]
     [InverseProperty("Addresses")]
-    public virtual User user { get; set; }
+    public virtual Client Client { get; set; }
 }

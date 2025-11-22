@@ -8,46 +8,39 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("name", Name = "IX_Products_Name")]
-[Index("vendor_id", Name = "IX_Products_Vendor")]
+[Index("CategoryID", Name = "IX_Products_CategoryID")]
 public partial class Product
 {
     [Key]
-    public int product_id { get; set; }
-
-    public int vendor_id { get; set; }
-
-    public int? category_id { get; set; }
+    public int ProductID { get; set; }
 
     [Required]
-    [StringLength(300)]
-    public string name { get; set; }
+    [StringLength(255)]
+    public string ProductName { get; set; }
 
-    public string description { get; set; }
+    [Column(TypeName = "decimal(18, 2)")]
+    public decimal Price { get; set; }
 
-    public bool is_deleted { get; set; }
+    [StringLength(500)]
+    public string Description { get; set; }
 
-    public DateTime created_at { get; set; }
+    public int CategoryID { get; set; }
 
-    public DateTime? updated_at { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    [InverseProperty("product")]
-    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+    [ForeignKey("CategoryID")]
+    [InverseProperty("Products")]
+    public virtual Category Category { get; set; }
 
-    [InverseProperty("product")]
+    [InverseProperty("Product")]
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
+    [InverseProperty("Product")]
     public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
 
-    [InverseProperty("product")]
+    [InverseProperty("Product")]
     public virtual ICollection<ProductVariant> ProductVariants { get; set; } = new List<ProductVariant>();
 
-    [InverseProperty("product")]
-    public virtual ICollection<Review> Reviews { get; set; } = new List<Review>();
-
-    [ForeignKey("category_id")]
-    [InverseProperty("Products")]
-    public virtual Category category { get; set; }
-
-    [ForeignKey("vendor_id")]
-    [InverseProperty("Products")]
-    public virtual Vendor vendor { get; set; }
+    [InverseProperty("Product")]
+    public virtual ICollection<SupplyOrderDetail> SupplyOrderDetails { get; set; } = new List<SupplyOrderDetail>();
 }

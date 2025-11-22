@@ -8,41 +8,27 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("product_id", Name = "IX_ProductVariants_Product")]
+[Index("ProductID", Name = "IX_ProductVariants_ProductID")]
 public partial class ProductVariant
 {
     [Key]
-    public int variant_id { get; set; }
+    public int VariantID { get; set; }
 
-    public int product_id { get; set; }
+    public int ProductID { get; set; }
 
+    [Required]
     [StringLength(100)]
-    public string sku { get; set; }
+    public string VariantName { get; set; }
 
-    [StringLength(200)]
-    public string variant_name { get; set; }
+    [Required]
+    [StringLength(100)]
+    public string VariantValue { get; set; }
 
-    [Column(TypeName = "decimal(12, 2)")]
-    public decimal price { get; set; }
+    public int StockQuantity { get; set; }
 
-    public int stock_quantity { get; set; }
+    public bool? IsActive { get; set; }
 
-    public bool is_active { get; set; }
-
-    public DateTime created_at { get; set; }
-
-    public DateTime? updated_at { get; set; }
-
-    [InverseProperty("variant")]
-    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
-
-    [InverseProperty("variant")]
-    public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
-
-    [InverseProperty("variant")]
-    public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
-
-    [ForeignKey("product_id")]
+    [ForeignKey("ProductID")]
     [InverseProperty("ProductVariants")]
-    public virtual Product product { get; set; }
+    public virtual Product Product { get; set; }
 }

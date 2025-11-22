@@ -3,7 +3,7 @@
    "ContextClassName": "AppDbContext",
    "ContextNamespace": null,
    "FilterSchemas": false,
-   "IncludeConnectionString": false,
+   "IncludeConnectionString": true,
    "IrregularWords": null,
    "MinimumProductVersion": "2.6.1224",
    "ModelNamespace": null,
@@ -23,43 +23,23 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[CartItems]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Carts]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[Categories]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[CommissionRecords]",
+         "Name": "[dbo].[Clients]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[CommissionRules]",
+         "Name": "[dbo].[Employees]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Files]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[OrderItems]",
+         "Name": "[dbo].[OrderDetails]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[Orders]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Payments]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[PayoutRequests]",
          "ObjectType": 0
       },
       {
@@ -75,27 +55,15 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Refunds]",
+         "Name": "[dbo].[SupplyOrderDetails]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Reviews]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Users]",
+         "Name": "[dbo].[SupplyOrders]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[Vendors]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[VendorTransactions]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[VendorUsers]",
          "ObjectType": 0
       }
    ],

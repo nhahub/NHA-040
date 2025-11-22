@@ -6,22 +6,22 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-@* <table class="table">
+<table class="table">
     <thead>
         <tr>
-            <th>user_id</th>
-            <th>email</th>
-            <th>first_name</th>
+            <th>Name</th>
+            <th>Employee Email</th>
+            <th>Role</th>
         </tr>
     </thead>
     <tbody>
-           @foreach (var user in Model)
+           @foreach (var emp in Model)
            {
                <tr>
-                <td>@user.user_id</td>
-                <td>@user.email</td>
-                <td>@user.first_name</td>
+                <td>@emp.Name</td>
+                <td>@emp.Email</td>
+                <td>@emp.Role</td>
                </tr>
         }
     </tbody>
-</table> *@
+</table>

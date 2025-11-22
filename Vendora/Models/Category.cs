@@ -8,35 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("name", Name = "IX_Categories_Name")]
 public partial class Category
 {
     [Key]
-    public int category_id { get; set; }
-
-    public int? parent_category_id { get; set; }
+    public int CategoryID { get; set; }
 
     [Required]
-    [StringLength(200)]
-    public string name { get; set; }
+    [StringLength(100)]
+    public string Name { get; set; }
 
-    [StringLength(1000)]
-    public string description { get; set; }
+    [StringLength(500)]
+    public string Description { get; set; }
 
-    public bool is_active { get; set; }
+    public bool? IsDeleted { get; set; }
 
-    public DateTime created_at { get; set; }
-
-    [InverseProperty("category")]
-    public virtual ICollection<CommissionRule> CommissionRules { get; set; } = new List<CommissionRule>();
-
-    [InverseProperty("parent_category")]
-    public virtual ICollection<Category> Inverseparent_category { get; set; } = new List<Category>();
-
-    [InverseProperty("category")]
+    [InverseProperty("Category")]
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
-
-    [ForeignKey("parent_category_id")]
-    [InverseProperty("Inverseparent_category")]
-    public virtual Category parent_category { get; set; }
 }

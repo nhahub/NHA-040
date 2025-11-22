@@ -8,6 +8,10 @@ namespace Vendora.Models;
 
 public partial class AppDbContext : DbContext
 {
+    public AppDbContext()
+    {
+    }
+
     public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {
@@ -15,25 +19,15 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Address> Addresses { get; set; }
 
-    public virtual DbSet<Cart> Carts { get; set; }
-
-    public virtual DbSet<CartItem> CartItems { get; set; }
-
     public virtual DbSet<Category> Categories { get; set; }
 
-    public virtual DbSet<CommissionRecord> CommissionRecords { get; set; }
+    public virtual DbSet<Client> Clients { get; set; }
 
-    public virtual DbSet<CommissionRule> CommissionRules { get; set; }
-
-    public virtual DbSet<File> Files { get; set; }
+    public virtual DbSet<Employee> Employees { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
 
-    public virtual DbSet<OrderItem> OrderItems { get; set; }
-
-    public virtual DbSet<Payment> Payments { get; set; }
-
-    public virtual DbSet<PayoutRequest> PayoutRequests { get; set; }
+    public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
 
@@ -41,278 +35,157 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<ProductVariant> ProductVariants { get; set; }
 
-    public virtual DbSet<Refund> Refunds { get; set; }
+    public virtual DbSet<SupplyOrder> SupplyOrders { get; set; }
 
-    public virtual DbSet<Review> Reviews { get; set; }
-
-    public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<SupplyOrderDetail> SupplyOrderDetails { get; set; }
 
     public virtual DbSet<Vendor> Vendors { get; set; }
-
-    public virtual DbSet<VendorTransaction> VendorTransactions { get; set; }
-
-    public virtual DbSet<VendorUser> VendorUsers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Address>(entity =>
         {
-            entity.HasKey(e => e.address_id).HasName("PK__Addresse__CAA247C838C5B07C");
+            entity.Property(e => e.created_at)
+                .HasDefaultValueSql("(sysutcdatetime())")
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Addresses_CreatedAt");
+            entity.Property(e => e.is_default)
+                .HasDefaultValue(false)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Addresses_IsDefault");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-
-            entity.HasOne(d => d.user).WithMany(p => p.Addresses)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Addresses_User");
-        });
-
-        modelBuilder.Entity<Cart>(entity =>
-        {
-            entity.HasKey(e => e.cart_id).HasName("PK__Carts__2EF52A271D3387B5");
-
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-
-            entity.HasOne(d => d.user).WithMany(p => p.Carts)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Carts_User");
-        });
-
-        modelBuilder.Entity<CartItem>(entity =>
-        {
-            entity.HasKey(e => e.cart_item_id).HasName("PK__CartItem__5D9A6C6E97D84765");
-
-            entity.Property(e => e.added_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.quantity).HasDefaultValue(1);
-
-            entity.HasOne(d => d.cart).WithMany(p => p.CartItems).HasConstraintName("FK_CartItems_Cart");
-
-            entity.HasOne(d => d.variant).WithMany(p => p.CartItems)
+            entity.HasOne(d => d.Client).WithMany(p => p.Addresses)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_CartItems_Variant");
+                .HasConstraintName("FK_Addresses_Clients1");
         });
 
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.category_id).HasName("PK__Categori__D54EE9B42EB9D76B");
+            entity.HasKey(e => e.CategoryID).HasName("PK__Categori__19093A2B9870E893");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.is_active).HasDefaultValue(true);
-
-            entity.HasOne(d => d.parent_category).WithMany(p => p.Inverseparent_category).HasConstraintName("FK_Categories_Parent");
+            entity.Property(e => e.IsDeleted)
+                .HasDefaultValue(false)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Categories_IsDeleted");
         });
 
-        modelBuilder.Entity<CommissionRecord>(entity =>
+        modelBuilder.Entity<Client>(entity =>
         {
-            entity.HasKey(e => e.rec_id).HasName("PK__Commissi__97D3CABD5781C4EA");
+            entity.HasKey(e => e.ClientID).HasName("PK__Clients__E67E1A04DAE7BFB2");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-
-            entity.HasOne(d => d.order_item).WithMany(p => p.CommissionRecords).HasConstraintName("FK_CommissionRecords_OrderItem");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(sysutcdatetime())")
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Clients_CreatedAt");
+            entity.Property(e => e.IsDeleted)
+                .HasDefaultValue(false)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Clients_IsDeleted");
         });
 
-        modelBuilder.Entity<CommissionRule>(entity =>
+        modelBuilder.Entity<Employee>(entity =>
         {
-            entity.HasKey(e => e.rule_id).HasName("PK__Commissi__E92A929661DC8D59");
+            entity.HasKey(e => e.EmployeeID).HasName("PK__Employee__7AD04FF199AB761E");
 
-            entity.Property(e => e.commission_percent).HasDefaultValue(10.00m);
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.scope).HasDefaultValue("global");
-
-            entity.HasOne(d => d.category).WithMany(p => p.CommissionRules).HasConstraintName("FK_CommissionRules_Category");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.CommissionRules).HasConstraintName("FK_CommissionRules_Vendor");
-        });
-
-        modelBuilder.Entity<File>(entity =>
-        {
-            entity.HasKey(e => e.file_id).HasName("PK__Files__07D884C66DD649B6");
-
-            entity.Property(e => e.uploaded_at).HasDefaultValueSql("(sysutcdatetime())");
-
-            entity.HasOne(d => d.uploaded_byNavigation).WithMany(p => p.Files)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Files_User");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.Files)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Files_Vendor");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(sysutcdatetime())")
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Employees_CreatedAt");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Employees_IsActive");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.order_id).HasName("PK__Orders__465962291CA2DCE7");
+            entity.HasKey(e => e.OrderID).HasName("PK__Orders__C3905BAF374EAA05");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.currency).HasDefaultValue("USD");
-            entity.Property(e => e.status).HasDefaultValue("pending_payment");
+            entity.Property(e => e.OrderDate).HasDefaultValueSql("(sysdatetime())");
 
-            entity.HasOne(d => d.billing_address).WithMany(p => p.Orderbilling_addresses).HasConstraintName("FK_Orders_BillingAddress");
-
-            entity.HasOne(d => d.shipping_address).WithMany(p => p.Ordershipping_addresses).HasConstraintName("FK_Orders_ShippingAddress");
-
-            entity.HasOne(d => d.user).WithMany(p => p.Orders)
+            entity.HasOne(d => d.Client).WithMany(p => p.Orders)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Orders_User");
+                .HasConstraintName("FK_Orders_Clients");
         });
 
-        modelBuilder.Entity<OrderItem>(entity =>
+        modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.order_item_id).HasName("PK__OrderIte__3764B6BC747FC63D");
+            entity.HasKey(e => e.OrderDetailsID).HasName("PK__OrderDet__9DD74D9D693251EC");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.quantity).HasDefaultValue(1);
-
-            entity.HasOne(d => d.order).WithMany(p => p.OrderItems).HasConstraintName("FK_OrderItems_Order");
-
-            entity.HasOne(d => d.product).WithMany(p => p.OrderItems)
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_OrderItems_Product");
+                .HasConstraintName("FK_OrderDetails_Orders");
 
-            entity.HasOne(d => d.variant).WithMany(p => p.OrderItems)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_OrderItems_Variant");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.OrderItems)
+            entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_OrderItems_Vendor");
-        });
-
-        modelBuilder.Entity<Payment>(entity =>
-        {
-            entity.HasKey(e => e.payment_id).HasName("PK__Payments__ED1FC9EAC8B80CD7");
-
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.currency).HasDefaultValue("USD");
-            entity.Property(e => e.status).HasDefaultValue("pending");
-
-            entity.HasOne(d => d.order).WithMany(p => p.Payments).HasConstraintName("FK_Payments_Order");
-        });
-
-        modelBuilder.Entity<PayoutRequest>(entity =>
-        {
-            entity.HasKey(e => e.payout_id).HasName("PK__PayoutRe__3B0771ECD6ADBE3C");
-
-            entity.Property(e => e.requested_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.status).HasDefaultValue("pending");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.PayoutRequests).HasConstraintName("FK_PayoutRequests_Vendor");
+                .HasConstraintName("FK_OrderDetails_Products");
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.product_id).HasName("PK__Products__47027DF5E3A0050F");
+            entity.HasKey(e => e.ProductID).HasName("PK__Products__B40CC6EDDB4EC8FC");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
+            entity.Property(e => e.IsDeleted)
+                .HasDefaultValue(false)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Products_IsDeleted");
 
-            entity.HasOne(d => d.category).WithMany(p => p.Products)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Products_Category");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.Products)
+            entity.HasOne(d => d.Category).WithMany(p => p.Products)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Products_Vendor");
+                .HasConstraintName("FK_Products_Categories");
         });
 
         modelBuilder.Entity<ProductImage>(entity =>
         {
-            entity.HasKey(e => e.image_id).HasName("PK__ProductI__DC9AC955DAE96461");
+            entity.Property(e => e.IsPrimary)
+                .HasDefaultValue(false)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_ProductImages_IsPrimary");
 
-            entity.HasOne(d => d.product).WithMany(p => p.ProductImages)
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductImages)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ProductImages_Product");
-
-            entity.HasOne(d => d.variant).WithMany(p => p.ProductImages)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_ProductImages_Variant");
+                .HasConstraintName("FK_ProductImages_Products1");
         });
 
         modelBuilder.Entity<ProductVariant>(entity =>
         {
-            entity.HasKey(e => e.variant_id).HasName("PK__ProductV__EACC68B704EF934A");
+            entity.HasKey(e => e.VariantID).HasName("PK__ProductV__0EA233E40FDDB18A");
 
-            entity.HasIndex(e => e.sku, "UQ_ProductVariants_SKU")
-                .IsUnique()
-                .HasFilter("([sku] IS NOT NULL)");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_ProductVariants_IsActive");
+            entity.Property(e => e.StockQuantity).HasAnnotation("Relational:DefaultConstraintName", "DF_ProductVariants_StockQuantity");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.is_active).HasDefaultValue(true);
-
-            entity.HasOne(d => d.product).WithMany(p => p.ProductVariants)
+            entity.HasOne(d => d.Product).WithMany(p => p.ProductVariants)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_ProductVariants_Product");
+                .HasConstraintName("FK_ProductVariants_Products");
         });
 
-        modelBuilder.Entity<Refund>(entity =>
+        modelBuilder.Entity<SupplyOrder>(entity =>
         {
-            entity.HasKey(e => e.refund_id).HasName("PK__Refunds__897E9EA3F39196C6");
+            entity.HasKey(e => e.SupplyOrderID).HasName("PK__SupplyOr__2D1FCC6D21366AEA");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.status).HasDefaultValue("pending");
-
-            entity.HasOne(d => d.order).WithMany(p => p.Refunds).HasConstraintName("FK_Refunds_Order");
-
-            entity.HasOne(d => d.payment).WithMany(p => p.Refunds)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Refunds_Payment");
-        });
-
-        modelBuilder.Entity<Review>(entity =>
-        {
-            entity.HasKey(e => e.review_id).HasName("PK__Reviews__60883D90E9C6D916");
-
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-
-            entity.HasOne(d => d.product).WithMany(p => p.Reviews)
+            entity.HasOne(d => d.Employee).WithMany(p => p.SupplyOrders)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Reviews_Product");
+                .HasConstraintName("FK_SupplyOrders_Employees");
 
-            entity.HasOne(d => d.user).WithMany(p => p.Reviews).HasConstraintName("FK_Reviews_User");
+            entity.HasOne(d => d.Vendor).WithMany(p => p.SupplyOrders)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SupplyOrders_Vendors");
         });
 
-        modelBuilder.Entity<User>(entity =>
+        modelBuilder.Entity<SupplyOrderDetail>(entity =>
         {
-            entity.HasKey(e => e.user_id).HasName("PK__Users__B9BE370FE09A494C");
+            entity.HasKey(e => e.SupplyOrderDetailID).HasName("PK__SupplyOr__7CEB9119466293D0");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.is_active).HasDefaultValue(true);
-            entity.Property(e => e.role).HasDefaultValue("customer");
+            entity.HasOne(d => d.Product).WithMany(p => p.SupplyOrderDetails)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SupplyOrderDetails_Products");
+
+            entity.HasOne(d => d.SupplyOrder).WithMany(p => p.SupplyOrderDetails)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SupplyOrderDetails_SupplyOrders");
         });
 
         modelBuilder.Entity<Vendor>(entity =>
         {
-            entity.HasKey(e => e.vendor_id).HasName("PK__Vendors__0F7D2B78794E2C04");
+            entity.HasKey(e => e.VendorID).HasName("PK__Vendors__FC8618D376265B3E");
 
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.status).HasDefaultValue("pending");
-
-            entity.HasOne(d => d.owner_user).WithMany(p => p.Vendors)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_Vendors_OwnerUser");
-        });
-
-        modelBuilder.Entity<VendorTransaction>(entity =>
-        {
-            entity.HasKey(e => e.txn_id).HasName("PK__VendorTr__37F080469A185088");
-
-            entity.Property(e => e.created_at).HasDefaultValueSql("(sysutcdatetime())");
-
-            entity.HasOne(d => d.order).WithMany(p => p.VendorTransactions)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("FK_VendorTransactions_Order");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.VendorTransactions).HasConstraintName("FK_VendorTransactions_Vendor");
-        });
-
-        modelBuilder.Entity<VendorUser>(entity =>
-        {
-            entity.HasKey(e => e.id).HasName("PK__VendorUs__3213E83F2DA5EBB5");
-
-            entity.Property(e => e.added_at).HasDefaultValueSql("(sysutcdatetime())");
-            entity.Property(e => e.vendor_role).HasDefaultValue("vendor_staff");
-
-            entity.HasOne(d => d.user).WithMany(p => p.VendorUsers).HasConstraintName("FK_VendorUsers_User");
-
-            entity.HasOne(d => d.vendor).WithMany(p => p.VendorUsers).HasConstraintName("FK_VendorUsers_Vendor");
+            entity.Property(e => e.ApprovedAt).HasDefaultValueSql("(sysdatetime())");
+            entity.Property(e => e.Balance)
+                .HasDefaultValue(0m)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_Vendors_Balance");
         });
 
         OnModelCreatingPartial(modelBuilder);
