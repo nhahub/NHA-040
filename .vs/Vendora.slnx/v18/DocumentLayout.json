@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "Vendora\\Controllers\\HomeController.cs",
               "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Vendora\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T15:46:43.501Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "Vendora\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-20T15:46:37.234Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T15:46:37.234Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "Vendora\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T15:46:19.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T15:46:19.775Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Vendora\\Data\\AppDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-20T15:46:16.792Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-20T15:46:16.792Z"
             }
           ]
         }
