@@ -1,22 +1,23 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 using Vendora.Models;
 
 namespace Vendora.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ProductsController
     {
-        private readonly AppDbContext _db;
-        public HomeController(AppDbContext db)
+
+        public HomeController(AppDbContext db) : base(db)
         {
-            this._db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View(_db.Employees.ToList());
+           
+            return await ProductIndex("Index");
         }
-
+        
         public IActionResult Privacy()
         {
             return View();

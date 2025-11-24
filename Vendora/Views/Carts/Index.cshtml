@@ -1,0 +1,118 @@
+﻿@model Vendora.ViewModels.CartPageViewModel
+
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+
+}
+
+
+
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Cart</h1>
+                </div>
+            </div>
+            <div class="col-lg-7">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+
+<div class="untree_co-section before-footer-section cart-box">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="site-blocks-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Image</th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-total">Total</th>
+                                <th class="product-remove">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                            <tr>
+                                <td class="product-thumbnail">
+                                        <img src="@Url.Content("~/images/" + item.imgPath)" alt="Image" class="img-fluid product-thumbnail" />
+                                </td>
+                                <td class="product-name">
+                                    <h2 class="h5 text-black">@item.ProductName</h2>
+                                </td>
+                                <td>$@item.UnitPrice</td>
+                                <td>
+                                    <div class=" align-items-center">
+                                        <form asp-action="EditQuantity" asp-controller="CartItems" asp-route-id="@item.CartItemId" asp-route-Quantity="@(item.Quantity - 1)" method="post"
+                                                class="input-group-prepend" style="width:fit-content; display:inline-block;">
+                                            <button class="btn btn-outline-black decrease" type="submit">&minus;</button>
+                                        </form>
+                                            <input style="width:3rem;display:inline-block;" type="text" class="form-control text-center quantity-amount" value="@item.Quantity" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" />
+                                        <form asp-action="EditQuantity" asp-controller="CartItems" asp-route-id="@item.CartItemId" asp-route-Quantity="@(item.Quantity + 1)" method="post"
+                                                  class="input-group-append" style="width:fit-content;display:inline-block;">
+                                            <button type="submit" class="btn btn-outline-black increase">&plus;</button>
+                                        </form>
+                                    </div>
+                                </td>
+                                    <td>$@item.TotalPrice</td>
+                                    <td>
+                                        <form asp-action="Delete" asp-controller="CartItems" asp-route-id="@item.CartItemId" method="post">
+                                            <button type="submit" class="btn btn-black btn-sm">X</button>
+                                        </form>
+                                    </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row mb-5">
+                    @* <div class="col-md-6 mb-3 mb-md-0">
+                        <button class="btn btn-black btn-sm btn-block">Update Cart</button>
+                    </div> *@
+                    <div class="col-md-6">
+                        <a asp-action="Index" asp-controller="Shop" class="btn btn-sm btn-block">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 pl-5">
+                <div class="row justify-content-end">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-12 text-right border-bottom mb-2">
+                                <h3 class="text-black h4 text-uppercase">Cart Total</h3>
+                            </div>
+                        </div>
+                        <div class="row mb-lg-5">
+                            <div class="col-md-6 text-right">
+                                <strong class="text-black fs-5">$@Model.CartTotal</strong>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a class="btn btn-black btn-lg py-3 btn-block" asp-action="Index" asp-controller="CheckOut">Proceed To Checkout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -19,6 +19,10 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Address> Addresses { get; set; }
 
+    public virtual DbSet<Cart> Carts { get; set; }
+
+    public virtual DbSet<CartItem> CartItems { get; set; }
+
     public virtual DbSet<Category> Categories { get; set; }
 
     public virtual DbSet<Client> Clients { get; set; }
@@ -55,6 +59,24 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Client).WithMany(p => p.Addresses)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Addresses_Clients1");
+        });
+
+        modelBuilder.Entity<Cart>(entity =>
+        {
+            entity.HasOne(d => d.Client).WithMany(p => p.Carts)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Carts_Clients");
+        });
+
+        modelBuilder.Entity<CartItem>(entity =>
+        {
+            entity.HasOne(d => d.Cart).WithMany(p => p.CartItems)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_CartItems_Carts");
+
+            entity.HasOne(d => d.Variant).WithMany(p => p.CartItems)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_CartItems_ProductVariants");
         });
 
         modelBuilder.Entity<Category>(entity =>

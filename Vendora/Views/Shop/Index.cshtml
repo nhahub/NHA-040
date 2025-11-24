@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Vendora.Models.Product>
+
+@{
+    ViewData["Title"] = "Shop";
+	Layout = "~/Views/Shared/_SiteLayout.cshtml";
+
+}
+<!-- Start Hero Section -->
+<div class="hero">
+	<div class="container">
+		<div class="row justify-content-between">
+			<div class="col-lg-5">
+				<div class="intro-excerpt">
+					<h1>Shop</h1>
+				</div>
+			</div>
+			<div class="col-lg-7">
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Hero Section -->
+
+<div class="untree_co-section product-section before-footer-section">
+	<div class="container">
+		<div class="row">
+            @foreach(var product in Model)
+            {    
+			<div class="col-12 col-md-4 col-lg-3 mb-5">
+                    <a class="product-item" asp-controller="ProductDetails" asp-action="Index" asp-route-id="@product.ProductID">
+                        <img src="@Url.Content("~/images/" + (product.ProductImages?.FirstOrDefault(i => i.IsPrimary == true)?.ImageURL ?? product.ProductImages?.FirstOrDefault(i => i !=null).ImageURL))"
+                             class="product-img product-thumbnail" />
+                        <h3 class="product-title">@product.ProductName</h3>
+					<strong class="product-price">@product.Price</strong>
+
+					<span class="icon-cross">
+						<img src="images/cross.svg" class="img-fluid">
+					</span>
+				</a>
+			</div>
+            }
+		</div>
+	</div>
+</div>
+<div class="Pagination-container">
+    <div class="Pagination-box">
+        @if (ViewBag.pageNum > 1)
+        {
+            <a asp-action="Index" asp-route-pageNum="@(ViewBag.pageNum - 1)" class="pagination-btn">Prev</a>
+        }
+        else
+        {
+            <span class="pagination-btn disabled">Prev</span>
+        }
+
+        <span class="current-page">@ViewBag.pageNum</span>
+
+        @if (ViewBag.pageNum < ViewBag.totalPage)
+        {
+            <a asp-action="Index" asp-route-pageNum="@(ViewBag.pageNum + 1)" class="pagination-btn">Next</a>
+        }
+        else
+        {
+            <span class="pagination-btn disabled">Next</span>
+        }
+    </div>
+</div>

@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
-[Index("ProductID", Name = "IX_ProductVariants_ProductID")]
 public partial class ProductVariant
 {
     [Key]
@@ -27,6 +26,9 @@ public partial class ProductVariant
     public int StockQuantity { get; set; }
 
     public bool? IsActive { get; set; }
+
+    [InverseProperty("Variant")]
+    public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     [ForeignKey("ProductID")]
     [InverseProperty("ProductVariants")]

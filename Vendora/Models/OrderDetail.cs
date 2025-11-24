@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 namespace Vendora.Models;
 
 [Index("OrderID", Name = "IX_OrderDetails_OrderID")]
-[Index("ProductID", Name = "IX_OrderDetails_ProductID")]
 public partial class OrderDetail
 {
     [Key]

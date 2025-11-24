@@ -1,0 +1,162 @@
+﻿@model Vendora.ViewModels.ProductDetailsViewModel
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+<!-- Start Hero Section -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Shop</h1>
+                </div>
+            </div>
+            <div class="col-lg-7">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero Section -->
+<!-- Start Product Details Section -->
+<div class="untree_co-section product-section before-footer-section mb-lg-5">
+    <div class="container pb-lg-5">
+        <!-- Breadcrumb -->
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Shop">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Product Images Slider -->
+            <div class="col-lg-6 mb-5">
+                <div class="testimonial-slider-wrap text-center">
+                    <div id="testimonial-nav">
+                        <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
+                        <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
+                    </div>
+                    <div class="testimonial-slider">
+                        <div class="item">
+                        <!-- Main Image First -->
+                            <div class="product-image-block">
+                                <img src="@Url.Content("~/images/" + Model.MainImage)"
+                                     alt="@Model.ProductName" 
+                                     class="img-fluid rounded product-main-img">
+                            </div>
+                        </div>
+                        <!-- Other Images -->
+                        @if (Model.Images !=null && Model.Images.Any())                        
+                        {
+                            @foreach(var image in Model.Images.Where(img => img != Model.MainImage))                            
+                            {            
+                                <div class="item">                                    
+                                <div class="product-image-block">                                        
+                                <img src="@Url.Content("~/images/" + image)" alt="@Model.ProductName" class="img-fluid rounded product-main-img">                                    
+                                </div>                               
+                                </div>                            
+                            }                       
+                        }
+                    </div>
+                
+                </div>    
+        </div>
+        <div class="col-lg-1"></div>
+            <!-- Product Info -->
+            <div class="col-lg-5">
+                <div class="product-detail-info">
+                    <h2 class="mb-3">@Model.ProductName</h2>
+
+                    <!-- Price -->
+                    <div class="mb-4">
+                        <h3 class="text-black">
+                            <strong>$@Model.Price</strong>
+                        </h3>
+                    </div>
+
+                    <!-- Short Description -->
+                    <div class="mb-4">
+                        <p class="text-muted">@Model.ShortDescription</p>
+                    </div>
+
+                    <!-- Product Variants (if applicable) -->
+                    @if (Model.Variants != null && Model.Variants.Any())
+                    {
+                        <div class="mb-4">
+                            <label class="form-label">
+                                <strong>Select Variant:</strong>
+                            </label>
+                            <select id="variantSelect" class="form-select w-50" onchange="updateVariant()">
+                                @foreach (var variant in Model.Variants)
+                                {
+                                    <option value="@variant.VariantId" data-stock="@variant.StockQuantity">
+                                        @variant.VariantName
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    }
+
+                    <!-- Quantity Selector -->
+                    <div class="mb-4">
+                        <label class="form-label"><strong>Quantity:</strong></label>
+                        <div class="input-group" style="max-width: 200px;">
+                            <button class="btn btn-outline-black" type="button" onclick="decreaseQuantity()">
+                                <span>&minus;</span>
+                            </button>
+                            <input type="text"
+                                    disabled
+                                   id="quantityInput"
+                                   class="form-control text-center"
+                                   value="1"
+                                   min="1"
+                                   max="@Model.StockQuantity"
+                                   >
+                            <button class="btn btn-outline-black" type="button" onclick="increaseQuantity()">
+                                <span>&plus;</span>
+                            </button>
+                        </div>
+                        <small class="text-muted">Available: @Model.StockQuantity in stock</small>
+                    </div>
+
+                    <!-- Add to Cart Form -->
+                    <form asp-action="Create" asp-controller="CartItems" method="post" id="addToCartForm">
+                        <input type="hidden" name="VariantId" id="selectedVariantId" value="@Model.Variants?.FirstOrDefault()?.VariantId" />
+                        <input type="hidden" name="CartId" value="1" />
+                        <input type="hidden" name="Quantity" id="selectedQuantity" value="1" />
+
+                        <div class="d-grid gap-2 d-md-flex">
+                            <button type="submit" class="btn btn-black btn-lg px-5 me-md-2">
+                                <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                            </button>
+                            <button type="button" class="btn btn-outline-black btn-lg px-4">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Product Meta -->
+                    <div class="mt-5 pt-4 border-top">
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="mb-2"><strong>Category:</strong></p>
+                                <p class="text-muted">@Model.CategoryName</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="mb-2"><strong>SKU:</strong></p>
+                                <p class="text-muted">@Model.ProductId</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Product Details Section -->
