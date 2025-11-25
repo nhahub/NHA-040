@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 	'use strict';
 
 	var tinyslider = function() {
@@ -115,13 +115,6 @@ document.getElementById('quantityInput').addEventListener('change', function () 
 	document.getElementById('selectedQuantity').value = this.value;
 });
 
-// Update variant selection
-function updateVariant() {
-	var select = document.getElementById('variantSelect');
-	var selectedOption = select.options[select.selectedIndex];
-	document.getElementById('selectedVariantId').value = selectedOption.value;
-}
-
 // Form validation before submit
 document.getElementById('addToCartForm').addEventListener('submit', function (e) {
 	var quantity = parseInt(document.getElementById('quantityInput').value);
@@ -132,3 +125,4 @@ document.getElementById('addToCartForm').addEventListener('submit', function (e)
 		alert('Quantity exceeds available stock!');
 	}
 });
+

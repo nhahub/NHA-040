@@ -19,7 +19,7 @@ public partial class Product
     public string ProductName { get; set; }
 
     [Column(TypeName = "decimal(18, 2)")]
-    public decimal Price { get; set; }
+    public decimal BasePrice { get; set; }
 
     [StringLength(500)]
     public string Description { get; set; }

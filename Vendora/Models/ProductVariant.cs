@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Vendora.Models;
 
+[Index("IsActive", Name = "IX_ProductVariants_IsActive")]
+[Index("ProductID", Name = "IX_ProductVariants_ProductID")]
+[Index("ProductID", "SizeID", "ColorID", "MaterialID", Name = "UQ_ProductVariants_Combination", IsUnique = true)]
 public partial class ProductVariant
 {
     [Key]
@@ -15,22 +18,35 @@ public partial class ProductVariant
 
     public int ProductID { get; set; }
 
-    [Required]
-    [StringLength(100)]
-    public string VariantName { get; set; }
+    public int? SizeID { get; set; }
 
-    [Required]
-    [StringLength(100)]
-    public string VariantValue { get; set; }
+    public int? ColorID { get; set; }
+
+    public int? MaterialID { get; set; }
+
+    [Column(TypeName = "decimal(10, 2)")]
+    public decimal Price { get; set; }
 
     public int StockQuantity { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     [InverseProperty("Variant")]
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
+    [ForeignKey("ColorID")]
+    [InverseProperty("ProductVariants")]
+    public virtual Color Color { get; set; }
+
+    [ForeignKey("MaterialID")]
+    [InverseProperty("ProductVariants")]
+    public virtual Material Material { get; set; }
+
     [ForeignKey("ProductID")]
     [InverseProperty("ProductVariants")]
     public virtual Product Product { get; set; }
+
+    [ForeignKey("SizeID")]
+    [InverseProperty("ProductVariants")]
+    public virtual Size Size { get; set; }
 }

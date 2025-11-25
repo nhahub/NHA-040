@@ -45,7 +45,7 @@
 					<img src="@Url.Content("~/images/" + (product.ProductImages?.FirstOrDefault(i => i.IsPrimary == true)?.ImageURL ?? product.ProductImages?.FirstOrDefault(i => i != null).ImageURL))"
 							 class="product-img product-thumbnail" />
 					<h3 class="product-title">@product.ProductName</h3>
-					<strong class="product-price">$@product.Price</strong>
+						<strong class="product-price">$@product.BasePrice</strong>
 
 					<span class="icon-cross">
 							<img src="images/cross.svg" class="img-fluid">

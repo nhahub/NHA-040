@@ -27,7 +27,11 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Client> Clients { get; set; }
 
+    public virtual DbSet<Color> Colors { get; set; }
+
     public virtual DbSet<Employee> Employees { get; set; }
+
+    public virtual DbSet<Material> Materials { get; set; }
 
     public virtual DbSet<Order> Orders { get; set; }
 
@@ -38,6 +42,8 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<ProductImage> ProductImages { get; set; }
 
     public virtual DbSet<ProductVariant> ProductVariants { get; set; }
+
+    public virtual DbSet<Size> Sizes { get; set; }
 
     public virtual DbSet<SupplyOrder> SupplyOrders { get; set; }
 
@@ -100,6 +106,13 @@ public partial class AppDbContext : DbContext
                 .HasAnnotation("Relational:DefaultConstraintName", "DF_Clients_IsDeleted");
         });
 
+        modelBuilder.Entity<Color>(entity =>
+        {
+            entity.HasKey(e => e.ColorID).HasName("PK__Colors__8DA7676D038FD241");
+
+            entity.Property(e => e.HexCode).IsFixedLength();
+        });
+
         modelBuilder.Entity<Employee>(entity =>
         {
             entity.HasKey(e => e.EmployeeID).HasName("PK__Employee__7AD04FF199AB761E");
@@ -110,6 +123,11 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasAnnotation("Relational:DefaultConstraintName", "DF_Employees_IsActive");
+        });
+
+        modelBuilder.Entity<Material>(entity =>
+        {
+            entity.HasKey(e => e.MaterialID).HasName("PK__Material__C50613172750C49D");
         });
 
         modelBuilder.Entity<Order>(entity =>
@@ -162,16 +180,24 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<ProductVariant>(entity =>
         {
-            entity.HasKey(e => e.VariantID).HasName("PK__ProductV__0EA233E40FDDB18A");
+            entity.HasKey(e => e.VariantID).HasName("PK__ProductV__0EA233E4024CC05A");
 
-            entity.Property(e => e.IsActive)
-                .HasDefaultValue(true)
-                .HasAnnotation("Relational:DefaultConstraintName", "DF_ProductVariants_IsActive");
-            entity.Property(e => e.StockQuantity).HasAnnotation("Relational:DefaultConstraintName", "DF_ProductVariants_StockQuantity");
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+
+            entity.HasOne(d => d.Color).WithMany(p => p.ProductVariants).HasConstraintName("FK_ProductVariants_Colors");
+
+            entity.HasOne(d => d.Material).WithMany(p => p.ProductVariants).HasConstraintName("FK_ProductVariants_Materials");
 
             entity.HasOne(d => d.Product).WithMany(p => p.ProductVariants)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_ProductVariants_Products");
+
+            entity.HasOne(d => d.Size).WithMany(p => p.ProductVariants).HasConstraintName("FK_ProductVariants_Sizes");
+        });
+
+        modelBuilder.Entity<Size>(entity =>
+        {
+            entity.HasKey(e => e.SizeID).HasName("PK__Sizes__83BD095A91D61731");
         });
 
         modelBuilder.Entity<SupplyOrder>(entity =>

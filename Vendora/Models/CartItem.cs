@@ -10,20 +10,20 @@ namespace Vendora.Models;
 
 public partial class CartItem
 {
-    [Key]
-    public int CartItemId { get; set; }
-
-    public int VariantID { get; set; }
-
     public int CartId { get; set; }
 
+    public int VariantId { get; set; }
+
     public int Quantity { get; set; }
+
+    [Key]
+    public int CartItemId { get; set; }
 
     [ForeignKey("CartId")]
     [InverseProperty("CartItems")]
     public virtual Cart Cart { get; set; }
 
-    [ForeignKey("VariantID")]
+    [ForeignKey("VariantId")]
     [InverseProperty("CartItems")]
     public virtual ProductVariant Variant { get; set; }
 }

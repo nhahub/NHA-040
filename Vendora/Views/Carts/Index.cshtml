@@ -6,8 +6,6 @@
 
 }
 
-
-
 <!-- Start Hero Section -->
 <div class="hero">
     <div class="container">
@@ -48,7 +46,7 @@
                                         <img src="@Url.Content("~/images/" + item.imgPath)" alt="Image" class="img-fluid product-thumbnail" />
                                 </td>
                                 <td class="product-name">
-                                    <h2 class="h5 text-black">@item.ProductName</h2>
+                                        <h2 class="h5 text-black">@item.ProductName</h2> @Html.Raw(item.VariantDescription)
                                 </td>
                                 <td>$@item.UnitPrice</td>
                                 <td>

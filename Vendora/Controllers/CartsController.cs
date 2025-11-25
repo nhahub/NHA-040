@@ -22,41 +22,74 @@ namespace Vendora.Controllers
         // GET: Carts
         public async Task<IActionResult> Index()
         {
-            //// 1. Get current user
-            //int clientId = GetCurrentClientId(); // you implement this
+            // TEMP: You already said you will later use logged in client
             int clientId = 1;
-            // 2. Get their cart
+
             var cart = await _context.Carts
                 .Include(c => c.CartItems)
                     .ThenInclude(ci => ci.Variant)
                         .ThenInclude(v => v.Product)
-                        .ThenInclude(i => i.ProductImages)
+                            .ThenInclude(p => p.ProductImages)
+                .Include(c => c.CartItems)
+                    .ThenInclude(ci => ci.Variant)
+                        .ThenInclude(v => v.Size)
+                .Include(c => c.CartItems)
+                    .ThenInclude(ci => ci.Variant)
+                        .ThenInclude(v => v.Color)
+                .Include(c => c.CartItems)
+                    .ThenInclude(ci => ci.Variant)
+                        .ThenInclude(v => v.Material)
                 .FirstOrDefaultAsync(c => c.ClientID == clientId);
 
             if (cart == null)
-                return View(new CartPageViewModel { Items = new List<CartItemsViewModel>() });
+            {
+                return View(new CartPageViewModel
+                {
+                    Items = new List<CartItemsViewModel>()
+                });
+            }
 
-            // 3. Map to view model
             var model = new CartPageViewModel
             {
                 Items = cart.CartItems.Select(ci =>
                 {
-                    var images = ProductsController.imgHandler(ci.Variant.Product);
-                    var primary = images
-                        .FirstOrDefault(i => i?.IsPrimary == true)?.ImageURL;
-                    var fallback = images
-                        .FirstOrDefault(i => i != null)?.ImageURL;
+                    var product = ci.Variant.Product;
+                    var variant = ci.Variant;
+
+                    // Get product images
+                    var images = ProductsController.imgHandler(product);
+                    var primary = images.FirstOrDefault(i => i?.IsPrimary == true)?.ImageURL;
+                    var fallback = images.FirstOrDefault(i => i != null)?.ImageURL;
+
+                    // Build variant description (e.g. "Size: L / Color: Red / Material: Cotton")
+                    var variantParts = new List<string>();
+
+                    if (variant.Size != null)
+                        variantParts.Add($"Size: {variant.Size.SizeName}");
+
+                    if (variant.Color != null)
+                        variantParts.Add($"Color: {variant.Color.ColorName}");
+
+                    if (variant.Material != null)
+                        variantParts.Add($"Material: {variant.Material.MaterialName}");
+
+                    string variantDescription = variantParts.Count > 0
+                        ? string.Join("/", variantParts)
+                        : "Standard";
+
                     return new CartItemsViewModel
                     {
                         CartItemId = ci.CartItemId,
-                        ProductName = ci.Variant.Product.ProductName,
-                        VariantName = ci.Variant.VariantName,
-                        UnitPrice = ci.Variant.Product.Price,
+                        ProductName = product.ProductName,
+                        VariantDescription = variantDescription,
+                        UnitPrice = variant.Price, // Changed: Price now comes from variant
                         Quantity = ci.Quantity,
                         imgPath = primary ?? fallback
                     };
-                }).ToList(),
-            }; 
+                })
+                .ToList(),
+            };
+
             return View(model);
         }
 
@@ -87,8 +120,6 @@ namespace Vendora.Controllers
         }
 
         // POST: Carts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CartId,ClientID")] Cart cart)
@@ -121,8 +152,6 @@ namespace Vendora.Controllers
         }
 
         // POST: Carts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CartId,ClientID")] Cart cart)

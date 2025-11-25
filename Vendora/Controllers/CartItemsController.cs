@@ -58,16 +58,21 @@ namespace Vendora.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VariantID,CartId,Quantity")] CartItem cartItem)
+        public async Task<IActionResult> Create([Bind("VariantId,CartId,Quantity")] CartItem cartItem)
         {
             if (ModelState.IsValid)
             {
+                // Don't set CartItemId - it's auto-generated
+                // Ensure CartItemId is 0 (default) so EF knows it's a new entity
+                cartItem.CartItemId = 0;
+
                 _context.Add(cartItem);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index","Carts",cartItem.CartId);
+                return RedirectToAction("Index", "Carts");
             }
+
             ViewData["CartId"] = new SelectList(_context.Carts, "CartId", "CartId", cartItem.CartId);
-            ViewData["VariantID"] = new SelectList(_context.ProductVariants, "VariantID", "VariantName", cartItem.VariantID);
+            ViewData["VariantId"] = new SelectList(_context.ProductVariants, "VariantID", "VariantID", cartItem.VariantId);
             return View(cartItem);
         }
 
@@ -85,7 +90,7 @@ namespace Vendora.Controllers
                 return NotFound();
             }
             ViewData["CartId"] = new SelectList(_context.Carts, "CartId", "CartId", cartItem.CartId);
-            ViewData["VariantID"] = new SelectList(_context.ProductVariants, "VariantID", "VariantName", cartItem.VariantID);
+            ViewData["VariantID"] = new SelectList(_context.ProductVariants, "VariantID", "VariantName", cartItem.VariantId);
             return View(cartItem);
         }
 
@@ -122,7 +127,7 @@ namespace Vendora.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CartId"] = new SelectList(_context.Carts, "CartId", "CartId", cartItem.CartId);
-            ViewData["VariantID"] = new SelectList(_context.ProductVariants, "VariantID", "VariantName", cartItem.VariantID);
+            ViewData["VariantID"] = new SelectList(_context.ProductVariants, "VariantID", "VariantName", cartItem.VariantId);
             return View(cartItem);
         }
         [HttpPost]

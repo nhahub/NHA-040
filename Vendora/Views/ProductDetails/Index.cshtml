@@ -44,39 +44,38 @@
                     </div>
                     <div class="testimonial-slider">
                         <div class="item">
-                        <!-- Main Image First -->
+                            <!-- Main Image First -->
                             <div class="product-image-block">
                                 <img src="@Url.Content("~/images/" + Model.MainImage)"
-                                     alt="@Model.ProductName" 
+                                     alt="@Model.ProductName"
                                      class="img-fluid rounded product-main-img">
                             </div>
                         </div>
                         <!-- Other Images -->
-                        @if (Model.Images !=null && Model.Images.Any())                        
+                        @if (Model.Images != null && Model.Images.Any())
                         {
-                            @foreach(var image in Model.Images.Where(img => img != Model.MainImage))                            
-                            {            
-                                <div class="item">                                    
-                                <div class="product-image-block">                                        
-                                <img src="@Url.Content("~/images/" + image)" alt="@Model.ProductName" class="img-fluid rounded product-main-img">                                    
-                                </div>                               
-                                </div>                            
-                            }                       
+                            @foreach (var image in Model.Images.Where(img => img != Model.MainImage))
+                            {
+                                <div class="item">
+                                    <div class="product-image-block">
+                                        <img src="@Url.Content("~/images/" + image)" alt="@Model.ProductName" class="img-fluid rounded product-main-img">
+                                    </div>
+                                </div>
+                            }
                         }
                     </div>
-                
-                </div>    
-        </div>
-        <div class="col-lg-1"></div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
             <!-- Product Info -->
             <div class="col-lg-5">
                 <div class="product-detail-info">
                     <h2 class="mb-3">@Model.ProductName</h2>
 
-                    <!-- Price -->
+                    <!-- Price (will be updated based on variant selection) -->
                     <div class="mb-4">
                         <h3 class="text-black">
-                            <strong>$@Model.Price</strong>
+                            <strong id="displayPrice">$@Model.BasePrice</strong>
                         </h3>
                     </div>
 
@@ -85,23 +84,59 @@
                         <p class="text-muted">@Model.ShortDescription</p>
                     </div>
 
-                    <!-- Product Variants (if applicable) -->
-                    @if (Model.Variants != null && Model.Variants.Any())
-                    {
-                        <div class="mb-4">
-                            <label class="form-label">
-                                <strong>Select Variant:</strong>
-                            </label>
-                            <select id="variantSelect" class="form-select w-50" onchange="updateVariant()">
-                                @foreach (var variant in Model.Variants)
-                                {
-                                    <option value="@variant.VariantId" data-stock="@variant.StockQuantity">
-                                        @variant.VariantName
-                                    </option>
-                                }
-                            </select>
+                    <div class="mt-3">
+                        <!-- SIZE SELECT -->
+                        @if (Model.SizeOptions != null && Model.SizeOptions.Any())
+                        {
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Select Size:</strong></label>
+                                <select id="sizeSelect" class="form-select w-50" onchange="updateSelectedVariant()">
+                                    <option value="">-- Choose Size --</option>
+                                    @foreach (var size in Model.SizeOptions)
+                                    {
+                                        <option value="@size.SizeID">@size.SizeName</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+
+                        <!-- COLOR SELECT -->
+                        @if (Model.ColorOptions != null && Model.ColorOptions.Any())
+                        {
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Select Color:</strong></label>
+                                <select id="colorSelect" class="form-select w-50" onchange="updateSelectedVariant()">
+                                    <option value="">-- Choose Color --</option>
+                                    @foreach (var color in Model.ColorOptions)
+                                    {
+                                        <option value="@color.ColorID" data-hex="@color.HexCode">
+                                            @color.ColorName
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+                        }
+
+                        <!-- MATERIAL SELECT -->
+                        @if (Model.MaterialOptions != null && Model.MaterialOptions.Any())
+                        {
+                            <div class="mb-3">
+                                <label class="form-label"><strong>Select Material:</strong></label>
+                                <select id="materialSelect" class="form-select w-50" onchange="updateSelectedVariant()">
+                                    <option value="">-- Choose Material --</option>
+                                    @foreach (var material in Model.MaterialOptions)
+                                    {
+                                        <option value="@material.MaterialID">@material.MaterialName</option>
+                                    }
+                                </select>
+                            </div>
+                        }
+
+                        <!-- Stock & variant result -->
+                        <div class="mb-3">
+                            <p id="stockResult" class="fw-bold"></p>
                         </div>
-                    }
+                    </div>
 
                     <!-- Quantity Selector -->
                     <div class="mb-4">
@@ -111,28 +146,26 @@
                                 <span>&minus;</span>
                             </button>
                             <input type="text"
-                                    disabled
                                    id="quantityInput"
                                    class="form-control text-center"
                                    value="1"
                                    min="1"
-                                   max="@Model.StockQuantity"
-                                   >
+                                   readonly>
                             <button class="btn btn-outline-black" type="button" onclick="increaseQuantity()">
                                 <span>&plus;</span>
                             </button>
                         </div>
-                        <small class="text-muted">Available: @Model.StockQuantity in stock</small>
+                        <small class="text-muted" id="stockAvailable">Please select options</small>
                     </div>
 
                     <!-- Add to Cart Form -->
                     <form asp-action="Create" asp-controller="CartItems" method="post" id="addToCartForm">
-                        <input type="hidden" name="VariantId" id="selectedVariantId" value="@Model.Variants?.FirstOrDefault()?.VariantId" />
+                        <input type="hidden" name="VariantId" id="selectedVariantId" value="" />
                         <input type="hidden" name="CartId" value="1" />
                         <input type="hidden" name="Quantity" id="selectedQuantity" value="1" />
 
                         <div class="d-grid gap-2 d-md-flex">
-                            <button type="submit" class="btn btn-black btn-lg px-5 me-md-2">
+                            <button type="submit" class="btn btn-black btn-lg px-5 me-md-2" id="addToCartBtn" disabled>
                                 <i class="fas fa-shopping-cart me-2"></i>Add to Cart
                             </button>
                             <button type="button" class="btn btn-outline-black btn-lg px-4">
@@ -149,7 +182,7 @@
                                 <p class="text-muted">@Model.CategoryName</p>
                             </div>
                             <div class="col-6">
-                                <p class="mb-2"><strong>SKU:</strong></p>
+                                <p class="mb-2"><strong>Product ID:</strong></p>
                                 <p class="text-muted">@Model.ProductId</p>
                             </div>
                         </div>
@@ -159,4 +192,141 @@
         </div>
     </div>
 </div>
-<!-- End Product Details Section -->
+@section Scripts {
+    <script>
+        const variants = @Html.Raw(Json.Serialize(Model.Variants));
+        let maxQuantity = 1;
+
+        console.log('Variants:', variants);
+
+        // Auto-select if only one variant exists
+        document.addEventListener('DOMContentLoaded', function() {
+            if (variants && variants.length === 1) {
+                autoSelectSingleVariant();
+            } else {
+                filterAvailableOptions(); // Initial filter
+            }
+        });
+
+        function autoSelectSingleVariant() {
+            const variant = variants[0];
+            document.getElementById('selectedVariantId').value = variant.variantId;
+            document.getElementById('displayPrice').textContent = '$' + variant.price.toFixed(2);
+            document.getElementById('stockResult').innerHTML = '<span class="text-success">✓ In Stock</span>';
+            document.getElementById('stockAvailable').textContent = 'Available: ' + variant.stockQuantity;
+            document.getElementById('addToCartBtn').disabled = false;
+            maxQuantity = variant.stockQuantity;
+        }
+
+        function filterAvailableOptions() {
+            const sizeSelect = document.getElementById('sizeSelect');
+            const colorSelect = document.getElementById('colorSelect');
+            const materialSelect = document.getElementById('materialSelect');
+
+            // Get currently selected values
+            const selectedSizeId = sizeSelect?.value ? parseInt(sizeSelect.value) : null;
+            const selectedColorId = colorSelect?.value ? parseInt(colorSelect.value) : null;
+            const selectedMaterialId = materialSelect?.value ? parseInt(materialSelect.value) : null;
+
+            // Find all valid combinations based on current selections
+            const validVariants = variants.filter(v => {
+                const sizeMatch = !selectedSizeId || v.sizeId === selectedSizeId;
+                const colorMatch = !selectedColorId || v.colorId === selectedColorId;
+                const materialMatch = !selectedMaterialId || v.materialId === selectedMaterialId;
+                return sizeMatch && colorMatch && materialMatch && v.isAvailable;
+            });
+
+            console.log('Valid variants after filter:', validVariants);
+
+            // Disable/enable size options
+            if (sizeSelect) {
+                const validSizes = new Set(validVariants.map(v => v.sizeId).filter(id => id !== null));
+                Array.from(sizeSelect.options).forEach(option => {
+                    if (option.value === '') return; // Skip "Choose..." option
+                    const isValid = validSizes.has(parseInt(option.value));
+                    option.disabled = !isValid;
+                    option.style.color = isValid ? '' : '#ccc';
+                });
+            }
+
+            // Disable/enable color options
+            if (colorSelect) {
+                const validColors = new Set(validVariants.map(v => v.colorId).filter(id => id !== null));
+                Array.from(colorSelect.options).forEach(option => {
+                    if (option.value === '') return;
+                    const isValid = validColors.has(parseInt(option.value));
+                    option.disabled = !isValid;
+                    option.style.color = isValid ? '' : '#ccc';
+                });
+            }
+
+            // Disable/enable material options
+            if (materialSelect) {
+                const validMaterials = new Set(validVariants.map(v => v.materialId).filter(id => id !== null));
+                Array.from(materialSelect.options).forEach(option => {
+                    if (option.value === '') return;
+                    const isValid = validMaterials.has(parseInt(option.value));
+                    option.disabled = !isValid;
+                    option.style.color = isValid ? '' : '#ccc';
+                });
+            }
+
+            // Check if we can match a variant
+            updateSelectedVariant();
+        }
+
+        function updateSelectedVariant() {
+            if (variants.length === 1) return;
+
+            const sizeId = parseInt(document.getElementById('sizeSelect')?.value) || null;
+            const colorId = parseInt(document.getElementById('colorSelect')?.value) || null;
+            const materialId = parseInt(document.getElementById('materialSelect')?.value) || null;
+
+            console.log('Selected IDs:', { sizeId, colorId, materialId });
+
+            const match = variants.find(v =>
+                v.sizeId === sizeId && v.colorId === colorId && v.materialId === materialId
+            );
+
+            console.log('Match:', match);
+
+            if (match && match.isAvailable) {
+                document.getElementById('selectedVariantId').value = match.variantId;
+                document.getElementById('displayPrice').textContent = '$' + match.price.toFixed(2);
+                document.getElementById('stockResult').innerHTML = '<span class="text-success">✓ In Stock</span>';
+                document.getElementById('stockAvailable').textContent = 'Available: ' + match.stockQuantity;
+                document.getElementById('addToCartBtn').disabled = false;
+                maxQuantity = match.stockQuantity;
+            } else {
+                document.getElementById('addToCartBtn').disabled = true;
+                const needsSelection = !sizeId || !colorId || !materialId;
+                if (needsSelection) {
+                    document.getElementById('stockResult').innerHTML = '<span class="text-warning">⚠ Select all options</span>';
+                } else {
+                    document.getElementById('stockResult').innerHTML = '<span class="text-danger">✗ Combination unavailable</span>';
+                }
+            }
+
+            // Re-filter options after selection
+            filterAvailableOptions();
+        }
+
+        function increaseQuantity() {
+            let val = parseInt(document.getElementById('quantityInput').value) || 1;
+            if (val < maxQuantity) {
+                document.getElementById('quantityInput').value = ++val;
+                document.getElementById('selectedQuantity').value = val;
+            }
+        }
+
+        function decreaseQuantity() {
+            let val = parseInt(document.getElementById('quantityInput').value) || 1;
+            if (val > 1) {
+                document.getElementById('quantityInput').value = --val;
+                document.getElementById('selectedQuantity').value = val;
+            }
+        }
+    </script>
+}
+}
+}

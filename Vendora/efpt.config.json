@@ -39,7 +39,15 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Colors]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Employees]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Materials]",
          "ObjectType": 0
       },
       {
@@ -60,6 +68,10 @@
       },
       {
          "Name": "[dbo].[ProductVariants]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Sizes]",
          "ObjectType": 0
       },
       {
