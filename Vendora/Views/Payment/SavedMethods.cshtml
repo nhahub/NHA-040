@@ -1,0 +1,63 @@
+﻿@model List<PaymentMethod>
+
+<h2>Saved Payment Methods</h2>
+
+<div class="payment-methods-list">
+    @foreach (var method in Model)
+    {
+        <div class="payment-method-card">
+            <div class="card-info">
+                <i class="fa fa-credit-card"></i>
+                <span>@method.CardBrand ending in @method.LastFourDigits</span>
+                <span>Expires: @method.ExpiryMonth/@method.ExpiryYear</span>
+
+                @if (method.IsDefault)
+                {
+                    <span class="badge badge-primary">Default</span>
+                }
+            </div>
+
+            <div class="card-actions">
+                @if (!method.IsDefault)
+                {
+                    <button class="btn btn-sm btn-outline-primary"
+                            onclick="setDefault(@method.PaymentMethodID)">
+                        Set as Default
+                    </button>
+                }
+
+                <button class="btn btn-sm btn-outline-danger"
+                        onclick="deleteMethod(@method.PaymentMethodID)">
+                    Delete
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-action="AddPaymentMethod" class="btn btn-primary">
+    Add New Payment Method
+</a>
+
+@section Scripts {
+    <script>
+        function setDefault(id) {
+            $.post('@Url.Action("SetDefault")', { id: id }, function(response) {
+                if (response.success) {
+                    location.reload();
+                }
+            });
+        }
+
+        function deleteMethod(id) {
+            if (confirm('Are you sure you want to delete this payment method?')) {
+                $.post('@Url.Action("Delete")', { id: id }, function(response) {
+                    if (response.success) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+    </script>
+}
+

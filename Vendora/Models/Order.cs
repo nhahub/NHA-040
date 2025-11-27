@@ -25,10 +25,16 @@ public partial class Order
 
     public int address_id { get; set; }
 
+    public int? PaymentMethodID { get; set; }
+
     [ForeignKey("ClientID")]
     [InverseProperty("Orders")]
     public virtual Client Client { get; set; }
 
     [InverseProperty("Order")]
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
+    [ForeignKey("PaymentMethodID")]
+    [InverseProperty("Orders")]
+    public virtual PaymentMethod PaymentMethod { get; set; }
 }

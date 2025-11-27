@@ -16,7 +16,7 @@ public partial class OrderDetail
 
     public int OrderID { get; set; }
 
-    public int ProductID { get; set; }
+    public int VariantID { get; set; }
 
     public int Quantity { get; set; }
 
@@ -30,7 +30,7 @@ public partial class OrderDetail
     [InverseProperty("OrderDetails")]
     public virtual Order Order { get; set; }
 
-    [ForeignKey("ProductID")]
+    [ForeignKey("VariantID")]
     [InverseProperty("OrderDetails")]
-    public virtual Product Product { get; set; }
+    public virtual ProductVariant Variant { get; set; }
 }

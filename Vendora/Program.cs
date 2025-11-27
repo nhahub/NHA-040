@@ -1,7 +1,7 @@
-using System;
 using Microsoft.EntityFrameworkCore;
 using Vendora.Models;
-//اhola
+using Vendora.Services;
+
 namespace Vendora
 {
     public class Program
@@ -13,33 +13,37 @@ namespace Vendora
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            //Add DI For DbContext
-            builder.Services.AddDbContext<AppDbContext>(option =>
+            // Add DbContext
+            builder.Services.AddDbContext<AppDbContext>(options =>
             {
-                option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            var app = builder.Build();
+            // Register Payment Service
+            builder.Services.AddScoped<IPaymentService, PaymentService>();
 
+            // Add authentication (if you need it)
+            // builder.Services.AddAuthentication(/* your auth config */);
+
+            var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles(); // Changed from MapStaticAssets
             app.UseRouting();
 
+            app.UseAuthentication(); // Add this if using authentication
             app.UseAuthorization();
 
-            app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
-                .WithStaticAssets();
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }

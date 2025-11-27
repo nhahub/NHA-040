@@ -842,3 +842,7 @@ textarea {
 .product-detail-info h3 {
     color: #3b5d50;
 }
+.thank-you-box{
+    margin:4rem 0;
+    padding:0;
+}

@@ -10,11 +10,11 @@ using Vendora.ViewModels;
 
 namespace Vendora.Controllers
 {
-    public class CartsController : Controller
+    public class CartsController : BaseCartController
     {
         private readonly AppDbContext _context;
 
-        public CartsController(AppDbContext context)
+        public CartsController(AppDbContext context): base(context)
         {
             _context = context;
         }
@@ -22,73 +22,9 @@ namespace Vendora.Controllers
         // GET: Carts
         public async Task<IActionResult> Index()
         {
-            // TEMP: You already said you will later use logged in client
             int clientId = 1;
-
-            var cart = await _context.Carts
-                .Include(c => c.CartItems)
-                    .ThenInclude(ci => ci.Variant)
-                        .ThenInclude(v => v.Product)
-                            .ThenInclude(p => p.ProductImages)
-                .Include(c => c.CartItems)
-                    .ThenInclude(ci => ci.Variant)
-                        .ThenInclude(v => v.Size)
-                .Include(c => c.CartItems)
-                    .ThenInclude(ci => ci.Variant)
-                        .ThenInclude(v => v.Color)
-                .Include(c => c.CartItems)
-                    .ThenInclude(ci => ci.Variant)
-                        .ThenInclude(v => v.Material)
-                .FirstOrDefaultAsync(c => c.ClientID == clientId);
-
-            if (cart == null)
-            {
-                return View(new CartPageViewModel
-                {
-                    Items = new List<CartItemsViewModel>()
-                });
-            }
-
-            var model = new CartPageViewModel
-            {
-                Items = cart.CartItems.Select(ci =>
-                {
-                    var product = ci.Variant.Product;
-                    var variant = ci.Variant;
-
-                    // Get product images
-                    var images = ProductsController.imgHandler(product);
-                    var primary = images.FirstOrDefault(i => i?.IsPrimary == true)?.ImageURL;
-                    var fallback = images.FirstOrDefault(i => i != null)?.ImageURL;
-
-                    // Build variant description (e.g. "Size: L / Color: Red / Material: Cotton")
-                    var variantParts = new List<string>();
-
-                    if (variant.Size != null)
-                        variantParts.Add($"Size: {variant.Size.SizeName}");
-
-                    if (variant.Color != null)
-                        variantParts.Add($"Color: {variant.Color.ColorName}");
-
-                    if (variant.Material != null)
-                        variantParts.Add($"Material: {variant.Material.MaterialName}");
-
-                    string variantDescription = variantParts.Count > 0
-                        ? string.Join("/", variantParts)
-                        : "Standard";
-
-                    return new CartItemsViewModel
-                    {
-                        CartItemId = ci.CartItemId,
-                        ProductName = product.ProductName,
-                        VariantDescription = variantDescription,
-                        UnitPrice = variant.Price, // Changed: Price now comes from variant
-                        Quantity = ci.Quantity,
-                        imgPath = primary ?? fallback
-                    };
-                })
-                .ToList(),
-            };
+            var model = await GetCartViewModel(clientId);
+            return View(model);
 
             return View(model);
         }

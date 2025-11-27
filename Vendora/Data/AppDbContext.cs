@@ -37,6 +37,8 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
+    public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
+
     public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<ProductImage> ProductImages { get; set; }
@@ -61,6 +63,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.is_default)
                 .HasDefaultValue(false)
                 .HasAnnotation("Relational:DefaultConstraintName", "DF_Addresses_IsDefault");
+            entity.Property(e => e.is_deleted).HasAnnotation("Relational:DefaultConstraintName", "DF_Addresses_is_deleted");
 
             entity.HasOne(d => d.Client).WithMany(p => p.Addresses)
                 .OnDelete(DeleteBehavior.ClientSetNull)
@@ -139,6 +142,8 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.Client).WithMany(p => p.Orders)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Orders_Clients");
+
+            entity.HasOne(d => d.PaymentMethod).WithMany(p => p.Orders).HasConstraintName("FK_Orders_PaymentMethods");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
@@ -149,9 +154,24 @@ public partial class AppDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_OrderDetails_Orders");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
+            entity.HasOne(d => d.Variant).WithMany(p => p.OrderDetails)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_OrderDetails_Products");
+                .HasConstraintName("FK_OrderDetails_ProductVariants");
+        });
+
+        modelBuilder.Entity<PaymentMethod>(entity =>
+        {
+            entity.Property(e => e.CreatedDate)
+                .HasDefaultValueSql("(sysdatetime())")
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_PaymentMethods_CreatedDate");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasAnnotation("Relational:DefaultConstraintName", "DF_PaymentMethods_IsActive");
+            entity.Property(e => e.IsDefault).HasAnnotation("Relational:DefaultConstraintName", "DF_PaymentMethods_IsDefault");
+
+            entity.HasOne(d => d.Client).WithMany(p => p.PaymentMethods)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_PaymentMethods_Clients");
         });
 
         modelBuilder.Entity<Product>(entity =>

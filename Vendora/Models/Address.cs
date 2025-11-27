@@ -34,6 +34,8 @@ public partial class Address
 
     public DateTime? created_at { get; set; }
 
+    public bool is_deleted { get; set; }
+
     [ForeignKey("ClientID")]
     [InverseProperty("Addresses")]
     public virtual Client Client { get; set; }

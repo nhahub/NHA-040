@@ -42,6 +42,9 @@ public partial class ProductVariant
     [InverseProperty("ProductVariants")]
     public virtual Material Material { get; set; }
 
+    [InverseProperty("Variant")]
+    public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
     [ForeignKey("ProductID")]
     [InverseProperty("ProductVariants")]
     public virtual Product Product { get; set; }

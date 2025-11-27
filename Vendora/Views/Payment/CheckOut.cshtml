@@ -1,0 +1,492 @@
+﻿@model Vendora.ViewModels.CheckoutViewModel
+
+@{
+    ViewData["Title"] = "CheckOut";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<!-- Hero Section (same as before) -->
+<div class="hero">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-5">
+                <div class="intro-excerpt">
+                    <h1>Checkout</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="untree_co-section">
+    <div class="container my-lg-5">
+        <form asp-action="ProcessCheckout" asp-controller="Payment" method="post" id="checkoutForm">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="OrderId" />
+
+            <div class="row">
+                <!-- LEFT COLUMN - Address -->
+                <div class="col-md-6 mb-5 mb-md-0">
+                    <h2 class="h3 mb-3 text-black">Shipping Address</h2>
+                    
+                    <!-- Saved Addresses Section -->
+                    <div id="savedAddressesSection" style="@(Model.SavedAddresses?.Any() == true ? "" : "display:none;")">
+                        @if (Model.SavedAddresses?.Any() == true)
+                        {
+                            <div class="p-3 border bg-white mb-3">
+                                <h5 class="mb-3">Select a saved address:</h5>
+                                @foreach (var address in Model.SavedAddresses)
+                                {
+                                    <div class="form-check border p-3 mb-2">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="SelectedAddressId"
+                                               value="@address.address_id"
+                                               id="address_@address.address_id"
+                                               checked="@address.is_default">
+                                        <label class="form-check-label w-100" for="address_@address.address_id">
+                                            <strong>@address.full_description</strong><br>
+                                            @address.city, @address.postal_code<br>
+                                            @address.country
+                                            @if (address.is_default==true)
+                                            {
+                                                <span class="badge bg-primary ms-2">Default</span>
+                                            }
+                                        </label>
+                                    </div>
+                                }
+                                <button type="button" class="btn btn-outline-black btn-sm mt-3" id="showNewAddressBtn">
+                                    <i class="fa fa-plus me-1"></i> Add New Address
+                                </button>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- New Address Form -->
+                    <div id="newAddressSection" style="@(Model.SavedAddresses?.Any() == true ? "display:none;" : "")">
+                        <div class="p-3 p-lg-5 border bg-white">
+                            @if (Model.SavedAddresses?.Any() == true)
+                            {
+                                <button type="button" class="btn btn-outline-secondary btn-sm mb-3" id="showSavedAddressesBtn">
+                                    <i class="fa fa-arrow-left me-1"></i> Back to Saved Addresses
+                                </button>
+                            }
+
+                            <input type="hidden" asp-for="UseNewAddress" id="useNewAddressInput" value="false" />
+
+                            <div class="form-group">
+                                <label class="text-black">Country <span class="text-danger">*</span></label>
+                                <select asp-for="NewAddress.Country" class="form-control" id="newAddressCountry">
+                                    <option value="">Select a country</option>
+                                    <option value="United States">United States</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Egypt">Egypt</option>
+                                    <option value="Saudi Arabia">Saudi Arabia</option>
+                                    <option value="UAE">UAE</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label class="text-black">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" asp-for="NewAddress.FullName" class="form-control" id="newAddressFullName" placeholder="John Doe">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="text-black">Company Name (Optional)</label>
+                                <input type="text" asp-for="NewAddress.CompanyName" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="text-black">Street Address <span class="text-danger">*</span></label>
+                                <input type="text" asp-for="NewAddress.FullDescription" class="form-control" id="newAddressStreet" placeholder="123 Main St">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" asp-for="NewAddress.AddressLine2" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label class="text-black">City <span class="text-danger">*</span></label>
+                                    <input type="text" asp-for="NewAddress.City" class="form-control" id="newAddressCity">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-black">Postal / Zip <span class="text-danger">*</span></label>
+                                    <input type="text" asp-for="NewAddress.PostalCode" class="form-control" id="newAddressPostal">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    <label class="text-black">Email <span class="text-danger">*</span></label>
+                                    <input type="email" asp-for="NewAddress.Email" class="form-control" id="newAddressEmail">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-black">Phone <span class="text-danger">*</span></label>
+                                    <input type="tel" asp-for="NewAddress.PhoneNumber" class="form-control" id="newAddressPhone" placeholder="+1234567890">
+                                </div>
+                            </div>
+
+                            <div class="form-check mt-3">
+                                <input class="form-check-input" type="checkbox" asp-for="NewAddress.SaveForFuture" id="saveAddressForFuture" checked>
+                                <label class="form-check-label" for="saveAddressForFuture">
+                                    Save this address for future orders
+                                </label>
+                            </div>
+
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" asp-for="NewAddress.SetAsDefault" id="setAddressAsDefault">
+                                <label class="form-check-label" for="setAddressAsDefault">
+                                    Set as default shipping address
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Notes (Optional) -->
+                    <div class="p-3 p-lg-5 border bg-white mt-3">
+                        <div class="form-group">
+                            <label for="c_order_notes" class="text-black">Order Notes (Optional)</label>
+                            <textarea asp-for="OrderNotes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Special instructions for your order..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN - Order Summary & Payment -->
+                <div class="col-md-6">
+                    <!-- Coupon Code (Optional - Disabled for now) -->
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <h2 class="h3 mb-3 text-black">Coupon Code (Optional)</h2>
+                            <div class="p-3 p-lg-5 border bg-white">
+                                <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
+                                <div class="input-group w-75 couponcode-wrap">
+                                    <input type="text" asp-for="CouponCode" class="form-control me-2" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-black btn-sm" type="button" id="button-addon2" disabled title="Coming soon">Apply</button>
+                                    </div>
+                                </div>
+                                <small class="text-muted">Coupon functionality coming soon</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="row mb-5">
+                        <div class="col-md-12">
+                            <h2 class="h3 mb-3 text-black">Your Order</h2>
+                            <div class="p-3 p-lg-5 border bg-white">
+                                <table class="table site-block-order-table mb-5">
+                                    <thead>
+                                    <th>Product</th>
+                                    <th>Total</th>
+                                    </thead>
+                                    <tbody>
+                                        @if (Model.CartItems != null && Model.CartItems.Any())
+                                        {
+                                            @foreach (var item in Model.CartItems)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mb-0">@item.ProductName</h6>
+                                                        <small class="text-muted">@item.VariantDescription</small>
+                                                        <strong class="mx-2">x</strong> @item.Quantity
+                                                    </td>
+                                                    <td class="align-content-center">$@item.TotalPrice.ToString("F2")</td>
+                                                </tr>
+                                            }
+                                        }
+                                        <tr>
+                                            <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
+                                            <td class="text-black">$@Model.CartTotal.ToString("F2")</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
+                                            <td class="text-black font-weight-bold"><strong>$@Model.CartTotal.ToString("F2")</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- Payment Method Section (Keep your existing payment section here) -->
+                                <h3 class="h5 mb-3 text-black">Payment Method</h3>
+
+                                <!-- Saved Payment Methods -->
+                                <div id="savedPaymentMethodsSection" style="@(Model.SavedPaymentMethods?.Any() == true ? "" : "display:none;")">
+                                    @if (Model.SavedPaymentMethods?.Any() == true)
+                                    {
+                                        <div class="border p-3 mb-3 bg-light">
+                                            <h5 class="mb-3">Select a saved payment method:</h5>
+                                            @foreach (var method in Model.SavedPaymentMethods)
+                                            {
+                                                <div class="form-check border-bottom pb-2 mb-2">
+                                                    <input class="form-check-input"
+                                                           type="radio"
+                                                           name="SelectedPaymentMethodId"
+                                                           value="@method.PaymentMethodID"
+                                                           id="payment_@method.PaymentMethodID"
+                                                           checked="@method.IsDefault">
+                                                    <label class="form-check-label d-flex align-items-center" for="payment_@method.PaymentMethodID">
+                                                        <i class="fa fa-credit-card me-2"></i>
+                                                        <span>
+                                                            <strong>@method.CardBrand</strong> ending in <strong>@method.LastFourDigits</strong>
+                                                            <br>
+                                                            <small class="text-muted">Expires: @method.ExpiryMonth/@method.ExpiryYear</small>
+                                                            @if (method.IsDefault)
+                                                            {
+                                                                <span class="badge bg-primary ms-2">Default</span>
+                                                            }
+                                                        </span>
+                                                    </label>
+                                                </div>
+                                            }
+                                            <button type="button" class="btn btn-outline-black btn-sm mt-3" id="showNewPaymentBtn">
+                                                <i class="fa fa-plus me-1"></i> Add New Payment Method
+                                            </button>
+                                        </div>
+                                    }
+                                </div>
+
+                                <!-- Add New Payment Method Form -->
+                                <div id="newPaymentMethodSection" style="@(Model.SavedPaymentMethods?.Any() == true ? "display:none;" : "")">
+                                    <div class="border p-3 mb-3 bg-light">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h5 class="mb-0">Add New Payment Method</h5>
+                                            @if (Model.SavedPaymentMethods?.Any() == true)
+                                            {
+                                                <button type="button" class="btn btn-outline-secondary btn-sm" id="showSavedPaymentsBtn">
+                                                    <i class="fa fa-arrow-left me-1"></i> Back to Saved Methods
+                                                </button>
+                                            }
+                                        </div>
+
+                                        <input type="hidden" asp-for="UseNewPaymentMethod" id="useNewPaymentMethodInput" value="false" />
+
+                                        <div class="form-group">
+                                            <label for="cardholderName" class="text-black">Cardholder Name <span class="text-danger">*</span></label>
+                                            <input type="text"
+                                                   class="form-control"
+                                                   id="cardholderName"
+                                                   asp-for="NewPaymentMethod.CardholderName"
+                                                   placeholder="John Doe">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="text-black">Card Information <span class="text-danger">*</span></label>
+                                            <div id="card-element" class="form-control" style="height: 40px; padding: 10px;"></div>
+                                            <div id="card-errors" class="text-danger mt-2" role="alert"></div>
+                                        </div>
+
+                                        <!-- Hidden fields for card details -->
+                                        <input type="hidden" asp-for="NewPaymentMethod.LastFourDigits" id="lastFourDigits" />
+                                        <input type="hidden" asp-for="NewPaymentMethod.CardBrand" id="cardBrand" />
+                                        <input type="hidden" asp-for="NewPaymentMethod.ExpiryMonth" id="expiryMonth" />
+                                        <input type="hidden" asp-for="NewPaymentMethod.ExpiryYear" id="expiryYear" />
+                                        <input type="hidden" asp-for="NewPaymentMethod.PaymentToken" id="paymentToken" />
+                                        <input type="hidden" asp-for="NewPaymentMethod.PaymentType" value="CreditCard" />
+
+                                        <div class="form-check mt-3">
+                                            <input class="form-check-input" type="checkbox" asp-for="NewPaymentMethod.SaveForFuture" id="saveForFuture" checked>
+                                            <label class="form-check-label" for="saveForFuture">
+                                                Save this payment method for future purchases
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check mt-2">
+                                            <input class="form-check-input" type="checkbox" asp-for="NewPaymentMethod.IsDefault" id="setAsDefault">
+                                            <label class="form-check-label" for="setAsDefault">
+                                                Set as default payment method
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Place Order Button -->
+                                <div class="form-group mt-4">
+                                    <button type="submit" class="btn btn-black btn-lg py-3 btn-block" id="submitButton">
+                                        <span id="buttonText">Place Order</span>
+                                        <span id="spinner" class="spinner-border spinner-border-sm ms-2" style="display:none;" role="status" aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Stripe initialization
+        var stripeKey = '@ViewBag.StripePublicKey';
+
+        if (!stripeKey || stripeKey === '') {
+            console.error('Stripe key is missing!');
+            document.getElementById('card-element').innerHTML =
+                '<div class="alert alert-danger">Payment system configuration error.</div>';
+        } else {
+            try {
+                var stripe = Stripe(stripeKey);
+                var elements = stripe.elements();
+                var cardElement = elements.create('card', {
+                    style: {
+                        base: {
+                            fontSize: '16px',
+                            color: '#32325d',
+                            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                            '::placeholder': { color: '#aab7c4' }
+                        },
+                        invalid: { color: '#fa755a', iconColor: '#fa755a' }
+                    }
+                });
+
+                cardElement.mount('#card-element');
+
+                cardElement.on('change', function(event) {
+                    var displayError = document.getElementById('card-errors');
+                    if (event.error) {
+                        displayError.textContent = event.error.message;
+                    } else {
+                        displayError.textContent = '';
+                    }
+                });
+
+                // Address Toggle Logic
+                var showNewAddressBtn = document.getElementById('showNewAddressBtn');
+                if (showNewAddressBtn) {
+                    showNewAddressBtn.addEventListener('click', function() {
+                        document.getElementById('savedAddressesSection').style.display = 'none';
+                        document.getElementById('newAddressSection').style.display = 'block';
+                        document.getElementById('useNewAddressInput').value = 'true';
+
+                        // Make address fields required
+                        document.getElementById('newAddressCountry').setAttribute('required', 'required');
+                        document.getElementById('newAddressFullName').setAttribute('required', 'required');
+                        document.getElementById('newAddressStreet').setAttribute('required', 'required');
+                        document.getElementById('newAddressCity').setAttribute('required', 'required');
+                        document.getElementById('newAddressPostal').setAttribute('required', 'required');
+                        document.getElementById('newAddressEmail').setAttribute('required', 'required');
+                        document.getElementById('newAddressPhone').setAttribute('required', 'required');
+                    });
+                }
+
+                var showSavedAddressesBtn = document.getElementById('showSavedAddressesBtn');
+                if (showSavedAddressesBtn) {
+                    showSavedAddressesBtn.addEventListener('click', function() {
+                        document.getElementById('savedAddressesSection').style.display = 'block';
+                        document.getElementById('newAddressSection').style.display = 'none';
+                        document.getElementById('useNewAddressInput').value = 'false';
+
+                        // Remove required from address fields
+                        document.getElementById('newAddressCountry').removeAttribute('required');
+                        document.getElementById('newAddressFullName').removeAttribute('required');
+                        document.getElementById('newAddressStreet').removeAttribute('required');
+                        document.getElementById('newAddressCity').removeAttribute('required');
+                        document.getElementById('newAddressPostal').removeAttribute('required');
+                        document.getElementById('newAddressEmail').removeAttribute('required');
+                        document.getElementById('newAddressPhone').removeAttribute('required');
+                    });
+                }
+
+                // Payment Toggle Logic
+                var showNewBtn = document.getElementById('showNewPaymentBtn');
+                if (showNewBtn) {
+                    showNewBtn.addEventListener('click', function() {
+                        document.getElementById('savedPaymentMethodsSection').style.display = 'none';
+                        document.getElementById('newPaymentMethodSection').style.display = 'block';
+                        document.getElementById('useNewPaymentMethodInput').value = 'true';
+                        document.getElementById('cardholderName').setAttribute('required', 'required');
+                    });
+                }
+
+                var showSavedBtn = document.getElementById('showSavedPaymentsBtn');
+                if (showSavedBtn) {
+                    showSavedBtn.addEventListener('click', function() {
+                        document.getElementById('savedPaymentMethodsSection').style.display = 'block';
+                        document.getElementById('newPaymentMethodSection').style.display = 'none';
+                        document.getElementById('useNewPaymentMethodInput').value = 'false';
+                        document.getElementById('cardholderName').removeAttribute('required');
+                    });
+                }
+
+                // Form submission
+                var form = document.getElementById('checkoutForm');
+                form.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+
+                    var submitButton = document.getElementById('submitButton');
+                    var buttonText = document.getElementById('buttonText');
+                    var spinner = document.getElementById('spinner');
+
+                    submitButton.disabled = true;
+                    buttonText.textContent = 'Processing...';
+                    spinner.style.display = 'inline-block';
+
+                    var useNewPaymentMethod = document.getElementById('useNewPaymentMethodInput').value === 'true';
+
+                    if (useNewPaymentMethod) {
+                        const {paymentMethod, error} = await stripe.createPaymentMethod({
+                            type: 'card',
+                            card: cardElement,
+                            billing_details: {
+                                name: document.getElementById('cardholderName').value,
+                                email: document.getElementById('newAddressEmail')?.value || '',
+                            }
+                        });
+
+                        if (error) {
+                            document.getElementById('card-errors').textContent = error.message;
+                            submitButton.disabled = false;
+                            buttonText.textContent = 'Place Order';
+                            spinner.style.display = 'none';
+                        } else {
+                            document.getElementById('paymentToken').value = paymentMethod.id;
+                            document.getElementById('lastFourDigits').value = paymentMethod.card.last4;
+                            document.getElementById('cardBrand').value = paymentMethod.card.brand;
+                            document.getElementById('expiryMonth').value = paymentMethod.card.exp_month;
+                            document.getElementById('expiryYear').value = paymentMethod.card.exp_year;
+                            form.submit();
+                        }
+                    } else {
+                        form.submit();
+                    }
+                });
+
+                // Initialize display state
+                @if (Model.SavedPaymentMethods?.Any() != true)
+                {
+                        <text>
+                        document.getElementById('useNewPaymentMethodInput').value = 'true';
+                        document.getElementById('cardholderName').setAttribute('required', 'required');
+                        </text>
+                }
+
+                @if (Model.SavedAddresses?.Any() != true)
+                {
+                        <text>
+                        document.getElementById('useNewAddressInput').value = 'true';
+                        document.getElementById('newAddressCountry').setAttribute('required', 'required');
+                        document.getElementById('newAddressFullName').setAttribute('required', 'required');
+                        document.getElementById('newAddressStreet').setAttribute('required', 'required');
+                        document.getElementById('newAddressCity').setAttribute('required', 'required');
+                        document.getElementById('newAddressPostal').setAttribute('required', 'required');
+                        document.getElementById('newAddressEmail').setAttribute('required', 'required');
+                        document.getElementById('newAddressPhone').setAttribute('required', 'required');
+                        </text>
+                }
+
+            } catch (error) {
+                console.error('Error initializing Stripe:', error);
+                document.getElementById('card-element').innerHTML =
+                    '<div class="alert alert-danger">Error loading payment form: ' + error.message + '</div>';
+            }
+        }
+    </script>
+}

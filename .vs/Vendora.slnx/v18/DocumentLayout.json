@@ -3,80 +3,104 @@
   "WorkspaceRootPath": "A:\\college\\internship\\DPI\\Vendora\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\thankyou\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\thankyou\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\productdetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\productdetails\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\carts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\carts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\thankyoucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\thankyoucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\services\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\products\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\payment\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\payment\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\viewmodels\\cartitemsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\viewmodels\\cartitemsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\cartitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\cartitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\payment\\savedmethods.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\payment\\savedmethods.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\products\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\products\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\products\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\products\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\shop\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\shop\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\shop\\productdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\shop\\productdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\shared\\_sitelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\shared\\_sitelayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\viewmodels\\paymentmethoddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\viewmodels\\paymentmethoddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\checkout\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\carts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\carts\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\basecartcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\basecartcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\viewmodels\\cartpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\viewmodels\\cartpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\viewmodels\\cartitemsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\viewmodels\\cartitemsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\cartscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\viewmodels\\checkoutitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\viewmodels\\checkoutitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\services\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\services\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\services\\stripepaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\services\\stripepaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\vendora.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\vendora.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\wwwroot\\js\\custom.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\aboutus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\aboutus\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|a:\\college\\internship\\dpi\\vendora\\vendora\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{526ECE35-289D-230D-C8FA-E555D22E8B41}|Vendora\\Vendora.csproj|solutionrelative:vendora\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -86,33 +110,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "Index.cshtml",
               "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Vendora\\Views\\Home\\Index.cshtml",
               "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Vendora\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAACIAAAAAAAAAAAAkwC8AAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-11-23T23:01:31.649Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 22,
               "Title": "custom.js",
               "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\js\\custom.js",
               "RelativeDocumentMoniker": "Vendora\\wwwroot\\js\\custom.js",
               "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\js\\custom.js",
               "RelativeToolTip": "Vendora\\wwwroot\\js\\custom.js",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAuwHQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-25T10:41:43.543Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CartsController.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CartsController.cs",
+              "RelativeDocumentMoniker": "Vendora\\Controllers\\CartsController.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CartsController.cs",
+              "RelativeToolTip": "Vendora\\Controllers\\CartsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-25T10:17:00.961Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "Vendora\\Controllers\\PaymentController.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "Vendora\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAALUAAAAAAAAAAAAgwMYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T14:55:13.877Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -120,208 +174,276 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\ProductDetails\\Index.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\ProductDetails\\Index.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\ProductDetails\\Index.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\ProductDetails\\Index.cshtml",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAFwAAAAlAAAAAAAAAA==",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\ThankYou\\Index.cshtml",
+              "RelativeDocumentMoniker": "Vendora\\Views\\ThankYou\\Index.cshtml",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\ThankYou\\Index.cshtml",
+              "RelativeToolTip": "Vendora\\Views\\ThankYou\\Index.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAwwB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T20:36:57.782Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CartsController.cs",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CartsController.cs",
-              "RelativeDocumentMoniker": "Vendora\\Controllers\\CartsController.cs",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CartsController.cs",
-              "RelativeToolTip": "Vendora\\Controllers\\CartsController.cs",
-              "ViewState": "AgIAAMsAAAAAAAAAAAAqwEwAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T10:17:00.961Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Create.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Products\\Create.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Create.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Products\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T20:08:35.915Z"
+              "WhenOpened": "2025-11-27T12:05:00.148Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Carts\\Index.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Carts\\Index.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Carts\\Index.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Carts\\Index.cshtml",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAFUAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-24T19:27:43.769Z"
+              "Title": "ThankYouController.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\ThankYouController.cs",
+              "RelativeDocumentMoniker": "Vendora\\Controllers\\ThankYouController.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\ThankYouController.cs",
+              "RelativeToolTip": "Vendora\\Controllers\\ThankYouController.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAqwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T17:44:45.459Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "style.css",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\css\\style.css",
-              "RelativeDocumentMoniker": "Vendora\\wwwroot\\css\\style.css",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\css\\style.css",
-              "RelativeToolTip": "Vendora\\wwwroot\\css\\style.css",
-              "ViewState": "AgIAAD0DAAAAAAAAAAAswEwDAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-24T19:32:04.777Z",
+              "DocumentIndex": 4,
+              "Title": "CheckOut.cshtml",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Payment\\CheckOut.cshtml",
+              "RelativeDocumentMoniker": "Vendora\\Views\\Payment\\CheckOut.cshtml",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Payment\\CheckOut.cshtml",
+              "RelativeToolTip": "Vendora\\Views\\Payment\\CheckOut.cshtml",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwDIAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T16:31:21.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Services\\PaymentService.cs",
+              "RelativeDocumentMoniker": "Vendora\\Services\\PaymentService.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Services\\PaymentService.cs",
+              "RelativeToolTip": "Vendora\\Services\\PaymentService.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAswIgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T14:53:31.587Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "CartItemsViewModel.cs",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CartItemsViewModel.cs",
-              "RelativeDocumentMoniker": "Vendora\\ViewModels\\CartItemsViewModel.cs",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CartItemsViewModel.cs",
-              "RelativeToolTip": "Vendora\\ViewModels\\CartItemsViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T18:11:00.801Z"
+              "Title": "appsettings.json",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\appsettings.json",
+              "RelativeDocumentMoniker": "Vendora\\appsettings.json",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\appsettings.json",
+              "RelativeToolTip": "Vendora\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-27T13:59:13.79Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "CartItemsController.cs",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CartItemsController.cs",
-              "RelativeDocumentMoniker": "Vendora\\Controllers\\CartItemsController.cs",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CartItemsController.cs",
-              "RelativeToolTip": "Vendora\\Controllers\\CartItemsController.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwFIAAAANAAAAAAAAAA==",
+              "Title": "SavedMethods.cshtml",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Payment\\SavedMethods.cshtml",
+              "RelativeDocumentMoniker": "Vendora\\Views\\Payment\\SavedMethods.cshtml",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Payment\\SavedMethods.cshtml",
+              "RelativeToolTip": "Vendora\\Views\\Payment\\SavedMethods.cshtml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T14:59:20.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PaymentMethodDto.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\PaymentMethodDto.cs",
+              "RelativeDocumentMoniker": "Vendora\\ViewModels\\PaymentMethodDto.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\PaymentMethodDto.cs",
+              "RelativeToolTip": "Vendora\\ViewModels\\PaymentMethodDto.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAwBwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-25T20:32:01.678Z"
+              "WhenOpened": "2025-11-27T14:57:48.61Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Products\\Edit.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Edit.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Products\\Edit.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAUwBcAAAAzAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Carts\\Index.cshtml",
+              "RelativeDocumentMoniker": "Vendora\\Views\\Carts\\Index.cshtml",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Carts\\Index.cshtml",
+              "RelativeToolTip": "Vendora\\Views\\Carts\\Index.cshtml",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAwwGwAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T20:08:14.567Z"
+              "WhenOpened": "2025-11-26T14:07:27.037Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Delete.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Products\\Delete.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Delete.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Products\\Delete.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAUwBQAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T20:08:27.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Shop\\Index.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Shop\\Index.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Shop\\Index.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Shop\\Index.cshtml",
-              "ViewState": "AgIAABkAAAAAAAAAAAAUwCEAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T20:08:03.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ProductDetails.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Shop\\ProductDetails.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Shop\\ProductDetails.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Shop\\ProductDetails.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Shop\\ProductDetails.cshtml",
-              "ViewState": "AgIAACMAAAAAAAAAAAAUwBMAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T20:07:46.251Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Details.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Products\\Details.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Details.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Products\\Details.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABMAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T19:50:50.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Index.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Products\\Index.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Products\\Index.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Products\\Index.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACgAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T19:50:31.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "_SiteLayout.cshtml",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Shared\\_SiteLayout.cshtml",
-              "RelativeDocumentMoniker": "Vendora\\Views\\Shared\\_SiteLayout.cshtml",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\Shared\\_SiteLayout.cshtml",
-              "RelativeToolTip": "Vendora\\Views\\Shared\\_SiteLayout.cshtml",
-              "ViewState": "AgIAAKgAAAAAAAAAAAAAALoAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-25T11:25:50.694Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "site.js",
-              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "Vendora\\wwwroot\\js\\site.js",
-              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "Vendora\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-25T11:25:17.631Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
               "Title": "Index.cshtml",
               "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\CheckOut\\Index.cshtml",
               "RelativeDocumentMoniker": "Vendora\\Views\\CheckOut\\Index.cshtml",
               "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\CheckOut\\Index.cshtml",
               "RelativeToolTip": "Vendora\\Views\\CheckOut\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAFcBAAAAAAAAAAAgwJgBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-24T19:24:16.133Z"
+              "WhenOpened": "2025-11-26T14:00:23.059Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 10,
+              "Title": "BaseCartController .cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\BaseCartController .cs",
+              "RelativeDocumentMoniker": "Vendora\\Controllers\\BaseCartController .cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\BaseCartController .cs",
+              "RelativeToolTip": "Vendora\\Controllers\\BaseCartController .cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwEcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:57:40.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CartPageViewModel.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CartPageViewModel.cs",
+              "RelativeDocumentMoniker": "Vendora\\ViewModels\\CartPageViewModel.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CartPageViewModel.cs",
+              "RelativeToolTip": "Vendora\\ViewModels\\CartPageViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T14:22:33.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CartItemsViewModel.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CartItemsViewModel.cs",
+              "RelativeDocumentMoniker": "Vendora\\ViewModels\\CartItemsViewModel.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CartItemsViewModel.cs",
+              "RelativeToolTip": "Vendora\\ViewModels\\CartItemsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T16:01:53.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CheckoutItemViewModel.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CheckoutItemViewModel.cs",
+              "RelativeDocumentMoniker": "Vendora\\ViewModels\\CheckoutItemViewModel.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\ViewModels\\CheckoutItemViewModel.cs",
+              "RelativeToolTip": "Vendora\\ViewModels\\CheckoutItemViewModel.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAoAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:54:02.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "CheckOutController.cs",
               "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CheckOutController.cs",
               "RelativeDocumentMoniker": "Vendora\\Controllers\\CheckOutController.cs",
               "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Controllers\\CheckOutController.cs",
               "RelativeToolTip": "Vendora\\Controllers\\CheckOutController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA8AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T19:23:36.688Z"
+              "WhenOpened": "2025-11-26T14:11:37.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IPaymentService.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Services\\IPaymentService.cs",
+              "RelativeDocumentMoniker": "Vendora\\Services\\IPaymentService.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Services\\IPaymentService.cs",
+              "RelativeToolTip": "Vendora\\Services\\IPaymentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T14:52:30.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "StripePaymentService.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Services\\StripePaymentService.cs",
+              "RelativeDocumentMoniker": "Vendora\\Services\\StripePaymentService.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Services\\StripePaymentService.cs",
+              "RelativeToolTip": "Vendora\\Services\\StripePaymentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:06:28.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Program.cs",
+              "RelativeDocumentMoniker": "Vendora\\Program.cs",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Program.cs",
+              "RelativeToolTip": "Vendora\\Program.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwA8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T15:00:55.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Vendora",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Vendora.csproj",
+              "RelativeDocumentMoniker": "Vendora\\Vendora.csproj",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Vendora.csproj",
+              "RelativeToolTip": "Vendora\\Vendora.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-27T14:51:13.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "site.css",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Vendora\\wwwroot\\css\\site.css",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Vendora\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-27T13:58:09.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "style.css",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "Vendora\\wwwroot\\css\\style.css",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "Vendora\\wwwroot\\css\\style.css",
+              "ViewState": "AgIAABkDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-27T13:58:03.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\AboutUs\\Index.cshtml",
+              "RelativeDocumentMoniker": "Vendora\\Views\\AboutUs\\Index.cshtml",
+              "ToolTip": "A:\\college\\internship\\DPI\\Vendora\\Vendora\\Views\\AboutUs\\Index.cshtml",
+              "RelativeToolTip": "Vendora\\Views\\AboutUs\\Index.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAG4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-27T13:56:02.276Z",
+              "EditorCaption": ""
             }
           ]
         }
