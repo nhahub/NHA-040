@@ -12,11 +12,9 @@ namespace Vendora.Controllers
 {
     public class CartsController : BaseCartController
     {
-        private readonly AppDbContext _context;
 
         public CartsController(AppDbContext context): base(context)
         {
-            _context = context;
         }
 
         // GET: Carts
@@ -24,8 +22,6 @@ namespace Vendora.Controllers
         {
             int clientId = 1;
             var model = await GetCartViewModel(clientId);
-            return View(model);
-
             return View(model);
         }
 
