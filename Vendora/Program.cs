@@ -21,7 +21,7 @@ namespace Vendora
 
             // Register Payment Service
             builder.Services.AddScoped<IPaymentService, PaymentService>();
-
+            //identity
             // Add authentication (if you need it)
             // builder.Services.AddAuthentication(/* your auth config */);
 
